@@ -1,0 +1,52 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"wp-package\" value=\"DebugConsole\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"wp-package\" value=\"SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "Properties/WMAppManifest.xml": {
+                "parents": {
+                    "/Deployment/App/Capabilities": [
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_IDENTITY_DEVICE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
+        },
+        "cordova-httpclient": {
+            "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
+        }
+    },
+    "dependent_plugins": {}
+}
