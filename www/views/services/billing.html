@@ -1,0 +1,46 @@
+<ion-view view-title="Finance Status">
+    <ion-content>
+      <ion-refresher
+          pulling-text="Pull to refresh..."
+          spinner="android"
+          on-refresh="doRefresh()">
+      </ion-refresher>
+        <div class="protect" ng-show="isAllow">
+          <div class="finance-status" ng-show="financeList">
+            <div class="list">
+              <div class="card">
+                <div class="billing">
+                  <h1>Billing</h1>
+                  <p class="bill-info">Rp -. {{toMoney(financeList.billing)}}</p>
+                  <p class="last-update">Last Update: {{ financeList.lastUpdate }}</p>
+                </div>
+              </div>
+              <div class="card">
+                <div ng-repeat="data in financeList.data">
+                  <div class="item item-divider">{{data.date}}</div>
+                  <div class="item" ng-repeat="dat in data.data">
+                    <h2>{{dat.title}}</h2>
+                    <div class="row">
+                      <div class="col col-50">
+                        <p><strong>Term :</strong> {{dat.term}}</p>
+                        <p><strong>Charge :</strong> {{dat.charge}}</p>
+                        <p><strong>Refund :</strong> {{data.refund}}</p>
+                      </div>
+                      <div class="col col-50">
+                        <p><strong>Payment :</strong> {{dat.payment}}</p>
+                        <p><strong>Due Date :</strong> {{dat.due}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="alert-not-found caution" ng-hide="financeList">
+              <i class="icon ion-cash"></i>
+              <h1>No finance status found</h1>
+              <p>Pull Down to refresh ...</p>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

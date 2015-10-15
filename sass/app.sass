@@ -1,0 +1,337 @@
+// To customize the look and feel of Ionic, you can override the variables
+// in ionic's _variables.scss file.
+//
+// For example, you might change some of the default colors:
+//
+// $light:                           #fff !default;
+// $stable:                          #f8f8f8 !default;
+// $positive:                        #387ef5 !default;
+// $calm:                            #11c1f3 !default;
+// $balanced:                        #33cd5f !default;
+// $energized:                       #ffc900 !default;
+// $assertive:                       #ef473a !default;
+// $royal:                           #886aea !default;
+// $dark:                            #444 !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default
+
+$positive: #187aad
+
+// Include all of Ionic
+@import ../www/lib/ionic/scss/ionic
+
+.loading-login
+	margin-top: 7px
+	margin-bottom: -7px
+	display: block
+	svg
+		stroke: #fff
+.loading-profile-image
+	margin-top: 1.9em
+	display: block
+	svg
+		stroke: #fff
+		width: 35px
+		height: 35px
+
+.bar .button.back-button
+	margin:
+		top: 4.5px
+		left: 8px
+
+.on-loading
+	position: relative
+	&:after
+		content: ''
+		display: block
+		top: 0
+		width: 100%
+		height: 100%
+		position: absolute
+		background: rgba(255, 255, 255, 0.5)
+		z-index: 2
+
+.last-check
+	background: #106490
+	color: #fff
+	padding: 3px 10px
+	font-size: 0.8em
+	font-weight: bold
+	margin-bottom: 0px
+
+.schedule-page
+	background: #f6f6f6
+.list.custom-list
+	padding-top: 0px !important
+	.item
+		background: #f6f6f6
+		border: none
+		&.completo
+			opacity: 0.5
+		h2
+			margin-right: 65px
+		time
+			position: absolute
+			top: 5px
+			right: 10px
+			font-size: 0.68em
+			font-weight: bold
+			color: #818181
+		p
+			margin-top: 10px
+			font-size: 0.8em
+			> span
+				min-width: 40px
+				display: inline-block
+				margin-right: 5px
+		.icon-sign
+			position: absolute
+			left: 10px
+			width: 50px
+			height: 50px
+			background: #13b183
+			border-radius: 100%
+			text-align: center
+			color: #fff
+			font-size: 1.5em
+			padding-top: 0.5em
+			&.gslc
+				background: #F5DF48
+			&.ss
+				background: #EA4545
+			&.practicum
+				background: #136BB1
+			&.default
+				background: #32ABE4
+		&.item-divider
+			background: #e1e1e1
+			&.today
+				background: #13B183
+				color: #fff
+			&.tomorrow
+				background: #F5A448
+				color: #fff
+.item
+	&.item-divider
+		background: #F0F0F0
+		color: #666
+		font-size: 0.9em
+		text-transform: uppercase
+		font-weight: bold
+		padding: 5px 15px
+		border: none
+
+.list
+	&.absence
+		.item
+			h1
+				font-size: 1em
+				font-weight: normal
+				margin-top: 10px
+				margin-right: 60px
+			.total
+				float: right
+				font-size: 2em
+				margin-right: 10px
+				margin-top: -30px
+				color: #E24545
+
+.login-name
+	text-transform: capitalize
+	position: absolute
+	top: 6em
+	left: 0
+	color: #fff
+	font-size: 19px
+	line-height: 1em
+	text-align: center
+	width: 100%
+.scroll-refresher .icon-refreshing
+	margin-bottom: 5px
+	.spinner
+		stroke: #13b183 !important
+
+.center-spinner
+	stroke: #187AAD
+	width: 100%
+	display: inline-block
+	text-align: center
+	margin: 10px 0px
+.download-spinner
+	stroke: #187AAD
+	position: absolute
+	top: 20px
+	right: 10px
+
+.alert-not-found
+	text-align: center
+	padding-top: 3.5em
+	color: #BDBDBD
+	i.icon
+		font-size: 3.5em
+		color: #EC7C7C
+	h1
+		font-size: 1.5em
+		color: #666
+	&.caution
+		i.icon
+			color: #A1A1A1
+
+.has-header
+	top: 60px
+.has-tabs-top
+	top: 95px
+.bar
+	height: 60px
+	.title
+		font-size: 20px
+		line-height: 60px
+.platform-android
+	.bar
+		.title
+			font-size: 20px
+			line-height: 60px
+.profile-menu
+	.bar
+		height: 185px !important
+		.image-profile-outer
+			width: 90px
+			height: 90px
+			overflow: hidden
+			border-radius: 100%
+			margin: 20px auto 0px
+			text-align: center
+			background: rgba(0, 0, 0, 0.2)
+			img
+				width: 90px
+	.has-header
+		top: 185px !important
+
+.about-page, .coming-page
+	text-align: center
+	margin-top: 5em
+	h1
+		font-size: 1.5em
+
+.exam-schedule
+	margin-bottom: 100px
+	.item
+		h2
+			font-size: 1.05em
+			margin-bottom: 0.5em
+		.row
+			margin: 0px -4px
+			padding: 0
+
+.finance-status
+	.card
+		.item
+			h2
+				font-size: 1.05em
+				margin-bottom: 0.5em
+			.row
+				margin: 0px -4px
+				padding: 0
+
+.billing
+	text-align: center
+	margin: 1em 0 2em
+	color: #353535
+	h1
+		color: grey
+		font-size: 1.3em
+	p.bill-info
+		font-size: 2.4em
+		line-height: 1em
+
+.item-select select
+	padding: 10px 48px 10px 16px
+
+.card
+	border-radius: 0
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+
+.menu-w-icon
+	a
+		i
+			font-size: 1.5em
+			margin-top: -5px
+			display: inline-block
+			margin-right: 5px
+			vertical-align: middle
+
+.exam-score
+	.item
+		h2
+			font-size: 1.5em
+		table
+			width: 100%
+			margin-top: 10px
+			tr
+				td
+					border-bottom: 1px solid #D5D5D5
+					padding: 5px 0px
+					font-size: 13px
+					width: 50%
+					&:first-child
+						font-weight: bold
+					&:last-child
+						text-align: right
+				&:last-child
+					td
+						border-bottom: 1px solid transparent
+
+.login-page
+	.logo-content
+		background: $positive
+		text-align: center
+		padding: 50px 0
+		img
+			width: 125px
+	.list
+		margin: 0
+
+.btn-login
+	margin: 0 !important
+
+.my-class
+	.item
+		position: relative
+		h4
+			font-size: 15px
+		h2
+			margin: 0
+		p
+			margin: 5px 0
+		a.button.active
+			color: #187AAD
+			opacity: 1
+			box-shadow: 0px -3px 0px #187AAD inset
+		a.see-mr
+			color: #333
+			text-decoration: none
+			float: right
+			margin-top: -25px
+			right: 10px
+			bottom: 10px
+			font-size: 13px
+		.re-button
+			display: block
+			margin-top: 15px
+
+.topics-page
+	ul
+		li
+			border-bottom: 1px solid #EAEAEA
+			padding: 10px 0px 5px
+			position: relative
+			&:last-child
+				border: none
+			h3
+				margin: 0
+					right: 65px
+			> .button
+				position: absolute
+				top: 7px
+				right: 0

@@ -1,0 +1,21 @@
+<ion-view view-title="">
+    <ion-content class="login-page" style="top:0px">
+        <div class="logo-content">
+          <img src="img/new-bimaylogo.svg" alt="" />
+        </div>
+        <div class="list list-inset">
+            <form ng-submit="submit()" ng-controller="LoginController" ng-class="loginClass">
+                <label class="item item-input">
+                    <input type="text" ng-model="binusid" placeholder="Binusian Id">
+                </label>
+                <label class="item item-input">
+                    <input type="password" ng-model="password" placeholder="Password">
+                </label>
+                <button class="button button-full btn-login button-positive">
+                    <span ng-hide="loading">Login</span>
+                    <ion-spinner icon="android" class="loading-login" ng-show="loading"></ion-spinner>
+                </button>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

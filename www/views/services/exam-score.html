@@ -1,0 +1,51 @@
+<ion-view view-title="Exam Score">
+    <ion-content>
+      <ion-refresher
+          pulling-text="Pull to refresh..."
+          spinner="android"
+          on-refresh="doRefresh()">
+      </ion-refresher>
+        <div class="protect" ng-show="isAllow">
+          <div class="list exam-score" ng-show="examScore">
+            <div class="item item-divider">Theory</div>
+            <div class="item" ng-repeat="data in examScore">
+              <h2>{{data.course}}</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>SKS</td>
+                    <td>{{data.sks}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tugas Mahasiswa</td>
+                    <td>{{data.tm}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mid Smester</td>
+                    <td>{{data.mid}}</td>
+                  </tr>
+                  <tr>
+                    <td>Practicum</td>
+                    <td>{{data.prac}}</td>
+                  </tr>
+                  <tr>
+                    <td>Final</td>
+                    <td>{{data.final}}</td>
+                  </tr>
+                  <tr>
+                    <td>Result</td>
+                    <td>{{data.result}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="item item-divider">Practicum</div>
+          </div>
+          <div class="alert-not-found caution" ng-hide="examScore">
+              <i class="icon ion-stats-bars"></i>
+              <h1>Exam Score not found</h1>
+              <p>Pull Down to refresh ...</p>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

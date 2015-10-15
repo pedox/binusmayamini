@@ -1,0 +1,22 @@
+<ion-view view-title="My Class">
+    <ion-content>
+      <ion-refresher
+          pulling-text="Pull to refresh..."
+          spinner="android"
+          on-refresh="doRefresh()">
+      </ion-refresher>
+      <div class="alert-not-found caution" ng-hide="classData">
+          <i class="icon ion-easel"></i>
+          <h1>My Class Not Found</h1>
+          <p>Pull Down to refresh ...</p>
+      </div>
+      <div class="list my-class card" ng-show="classData">
+        <div ng-repeat="data in classData">
+          <a ng-href="{{ '#/myclass-detail/'+data.code }}" class="item item-body">
+            <h2>{{data.name}}</h2>
+            <p>{{data.code}} &mdash; {{data.className}}</p>
+          </a>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

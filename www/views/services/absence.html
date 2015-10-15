@@ -1,0 +1,22 @@
+<ion-view view-title="Absence">
+    <ion-content>
+      <ion-refresher
+          pulling-text="Pull to refresh..."
+          spinner="android"
+          on-refresh="doRefresh()">
+      </ion-refresher>
+        <!--<div class="protect" ng-show="isAllow">-->
+          <div class="list absence" ng-show="absence">
+            <div class="item" ng-repeat="d in absence">
+              <h1>{{ d.name }}</h1>
+              <div class="total">{{ d.total }}</div>
+            </div>
+          </div>
+          <div class="alert-not-found caution" ng-hide="absence">
+              <i class="icon ion-android-checkbox-outline"></i>
+              <h1>Absence Data not found</h1>
+              <p>Pull Down to refresh ...</p>
+          </div>
+        <!--</div>-->
+    </ion-content>
+</ion-view>
