@@ -99,6 +99,25 @@ angular.module('BinusMayaFactory', [])
     },
     _requestError: function(data) {
 
-    }
+    },
+    grouping: function(_data) {
+			if(_data.length <= 0) {
+				return [];
+			}
+			var m = [],
+				p = '',
+				c = -1,
+				ch = 0;
+			_data.forEach(function(d,i) {
+				if(p == d.date) {
+					m[c].data[ch] = d; ch++;
+				} else {
+					ch = 1; c++; p = d.date;
+					m[c] = {date: d.date, data: []};
+					m[c].data[0] = d;
+				}
+			});
+			return m;
+		}
   };
 });
