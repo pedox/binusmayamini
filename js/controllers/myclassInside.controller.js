@@ -12,8 +12,7 @@ app.controller('MyClassDetailController',
       loading: true
     };
     $scope.data = $scope.classData[dataset];
-    $scope.infoTab = 'active';
-    $scope.topicsTab = '';
+    $scope.isPageTopic = false;
 
     var getClassDetail = function(url) {
       return $q(function(resolve, reject) {
@@ -33,7 +32,6 @@ app.controller('MyClassDetailController',
             reject("can't access to main frame");
           })
           .then(function(c) {
-            console.log()
             return BinusMaya.api(_bimay_api_url + '/LMS/' + url, 'get', {}, true);
           }, function() {
             reject("can't access to my class");

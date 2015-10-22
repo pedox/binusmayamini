@@ -13,7 +13,7 @@
       <div class="list my-class card" ng-show="classData">
         <div ng-repeat="data in classData">
           <a ng-href="{{ '#/myclass-detail/'+data.code }}" class="item item-body">
-            <h2>{{data.name}}</h2>
+            <h2 ng-bind-html="data.name"></h2>
             <p>{{data.code}} &mdash; {{data.className}}</p>
           </a>
         </div>

@@ -20,3 +20,7 @@ Created with [Ionicframework](ionicframework.com)
 
 ### Limitation
 For old version Binusmaya only (Binus Anggrek, Syadhan, Kijang) no promises for new Binusmaya
+
+## Fake HTTP Server
+
+	$ http-server -p 2505 fake-http --cors

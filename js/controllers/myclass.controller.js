@@ -21,21 +21,21 @@ app.controller('MyClassController',
             // Fail to re-login
             reject("can't re-auth your account");
           })
-          // Load These Page
-          .then(function(d) {
-            return BinusMaya.frame(
-              $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
-            );
-          }, function() {
-            reject("can't access to main frame");
-          })
+        // Load These Page
+        .then(function(d) {
+          return BinusMaya.frame(
+            $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
+          );
+        }, function() {
+          reject("can't access to main frame");
+        })
           .then(function(c) {
             var _reData = [],
               _promisesYou = [],
               _promisesCount = 0;
             $(c.result.result).find("#ctl00_ContentPlaceHolder1_pnlTeori ul li").each(function(i, d) {
               var name = $(d).find("a").html(),
-                  reg = name.match(/^(.*)-(.*) \((.*)\)/i);
+                reg = name.match(/^(.*)-(.*) \((.*)\)/i);
               _reData.push({
                 indexItem: i,
                 name: reg[2],
@@ -54,14 +54,14 @@ app.controller('MyClassController',
 
     $scope.doRefresh = function() {
       refreshMyClass()
-      .then(function(done) {
-        if (done.length > 0) {
-          $scope.classData = done;
-        } else {
-          errHandle("You don't have any class");
-        }
-        $scope.$broadcast('scroll.refreshComplete');
-      }, errHandle);
+        .then(function(done) {
+          if (done.length > 0) {
+            $scope.classData = done;
+          } else {
+            errHandle("You don't have any class");
+          }
+          $scope.$broadcast('scroll.refreshComplete');
+        }, errHandle);
 
       var errHandle = function(msg) {
         $ionicPopup.alert({

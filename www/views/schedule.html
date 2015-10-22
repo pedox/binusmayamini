@@ -16,7 +16,7 @@
                         <span class="icon-sign practicum" ng-switch-when="Practicum"><i class="icon ion-erlenmeyer-flask"></i></span>
                         <span class="icon-sign default" ng-switch-default><i class="icon ion-calendar"></i></span>
                     </div>
-                    <h2>{{ dat.course }}</h2>
+                    <h2 ng-bind-html="dat.course"></h2>
                     <p><span class="room">{{ dat.room }}</span> <span class="my-class">{{ dat.myClass }}</span> <span>{{dat.state }}</span> <span class="building">{{ dat.building }}</span></p>
                     <time>{{ dat.time }}</time>
                 </a>

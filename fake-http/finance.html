@@ -1,0 +1,650 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1"><title>
+	Bina Nusantara :: Binusmaya
+</title><link rel="stylesheet" type="text/css" media="all" href="../Common/css/css.css" />
+
+<style type="text/css">
+		#tabs { height: 200px;} 
+		.tabs-bottom { position: relative; } 
+		.tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
+		.tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; background-color:#f9f9f9} 
+		.tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px;  background-color: Silver}
+		.ui-tabs-selected { margin-top: -3px !important; }
+	.style1
+    {
+        width: 262px;
+        height: 7px;
+    }
+	.style2
+    {
+        width: 167px;
+        height: 7px;
+    }
+</style>
+</head>
+
+<body id="lectureNav">
+    <form name="aspnetForm" method="post" action="StudentFinanceStatus.aspx?smid=%2favfj8RTMddctsClvnMqcQ%3d%3d" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjU1MTE5NzYxDxYKHgxCaW51c2lhbkRhdGEytwMAAQAAAP////8BAAAAAAAAAAwCAAAAWUJpbnVzaWFuU2VydmljZXMuQnVzaW5lc3MuRW50aXRpZXMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAA0QmludXNpYW5TZXJ2aWNlcy5CdXNpbmVzcy5FbnRpdGllcy5EYXRhLkJpbnVzaWFuRGF0YRIAAAALX0JpbnVzaWFuSWQOX3RyYW5zYWN0aW9uSUQIX2tkRG9zZW4GX05pbWhzBl9rZExlYwVfTmFtZQZfRW1haWwKX0JpcnRoRGF0ZRFfa2RTdGF0dXNCaW51c2lhbhJfc3RhdHVzQmludXNpYW5JbmQSX3N0YXR1c0JpbnVzaWFuRW5nDV9qZW5pc1Nrcmlwc2kMX2tvZGVKdXJ1c2FuDF9ub1VydXRUb3BpawZfa2VsYXMIX3RhbmdnYWwGX3NoaWZ0Bl9ydWFuZwEBAQEBAQEAAQEBAQEBAQEBAQ0CAAAABgMAAAALQk4wMDAwMDU2MzYKCgoKCgoAAAAAAAAAAAoKCgoKCgoKCgoLHglTZXJ2aWNlSWQCiAEeB1BlcmlvZGUFBDIwMTUeBUtkU2VtBQExHgVObVNlbQUDT2RkFgJmD2QWAgIDD2QWCAIBDxYCHgdWaXNpYmxlZ2QCAw9kFgQCAQ8PFgQeBFRleHQFB0ZpbmFuY2UeC1Bvc3RCYWNrVXJsBWVodHRwOi8vYXBwcy5iaW51c21heWEuYmludXMuYWMuaWQvU2VydmljZXMvU3R1ZGVudE1lbnUvRmluYW5jZS5hc3B4P3NtaWQ9ZW5hNlRlWlhwZUIxYWkwbWpOM0JldyUzZCUzZGRkAgMPFgIfBgUWU3R1ZGVudCBGaW5hbmNlIFN0YXR1c2QCBA9kFgICAQ9kFgICAQ8PFgIfBgUWU3R1ZGVudCBGaW5hbmNlIFN0YXR1c2RkAgYPZBYGAgEPZBYGAgEPDxYEHwYFC1llYXIgOiAyMDE1HwVnZGQCAw8PFgQfBgUOU2VtZXN0ZXIgOiBPZGQfBWdkZAIFDxBkDxYBZhYBEAUDQUxMBQNBTExnFgFmZAIDDxYCHwYFATBkAgcPDxYCHwVnZBYCAgEPFgIe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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/Services/WebResource.axd?d=AedkaLRZnQvWq3I06JFKfdBoBmbk-0UriV7BhlYaGIfs2VKzfiYJ3gbWkgbRSJCrB1CE1Gg2YrlQ09bshNqR3ZAGju41&amp;t=635672579665252451" type="text/javascript"></script>
+
+
+<script src="/Services/ScriptResource.axd?d=HzemoJ5WmcjGZZTN5ftSWGK4DbjUwaEo0O_AOQn8pPq1Al43EWNc7W5Gx3ciGrnB_fgZ-V0-MfzCuir2Q58J9mbLHUdmzeogCBGPk9cpUufWQ0HUeY7cDrPDzZhs_ddvpug2c7A9G1TFeoBzlbuviadyjJWukuo54_Nx9XKZJiyOhZ3Z0&amp;t=c91bcb2" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/Services/ScriptResource.axd?d=H64qXQ7rrIAkDWtjEMBqF73zybYEWu0LhShL0567mozUirwsyRDnSg4v9GsfYFWuNjn4oQy0rBFmlRo90m_Un3Htc44_dx8fTDNzdVfBHvCUrb3YlwIPYKbqrrv008BaO5YyusvsVXT7gdYV7pod0CUXQX6tPPtyG60JKZgleMzzse9o0&amp;t=c91bcb2" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C5052EA5" />
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="JgSV_6_fIIfqJPPa9U7Hlm9x6zCnmP7iJKJL_3i_uuAS0N--wZtWhd1eUuZbhy07Mg667hCjlPn4d527O0osG2hmxd3QvoJ-Q2dVtmQHphuxilnyroo-WnbMaOyV1w-BlT8vfA2" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgKBzaLvDALtoeFzaLOwJVMiVoo8vUPsqXgYtVPsnwA=" />
+</div>
+   
+	
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+    
+    <script type="text/javascript" src="http://apps.binusmaya.binus.ac.id/Services/Common/js/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/commonui.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/jquery.min.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/draganddrop.js"></script>
+    
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/SpryMenuBar.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/SpryAccordion.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/SpryTabbedPanels.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/contentslider.js"></script>
+    
+ <!--script for hidden insidemenu tabs, e.g Jadwal Kuliah, Nilai Ujian--> 
+	
+    <div id="sort2Service" class="sort2Service groupWrapperService" style="width:760px !important;">
+    <div id="feeds" class="groupItemFixed">
+        
+        <div class="itemContent">
+ 
+     
+        <div id="tabs_Style">
+		    <ul>
+                <li id="ctl00_tabStudent"><a class="active" href="http://apps.binusmaya.binus.ac.id/Services/studentMenuContent.aspx">Student</a></li>
+                
+                <li><a href="http://apps.binusmaya.binus.ac.id/Services/commonMenuContent.aspx">General</a></li>
+            </ul>
+        </div>
+     
+     	<div class="contentForService">
+            <div>
+               
+    <a href="../commonMenuContent.aspx"><strong>Services</strong></a> » <a href="../studentMenuContent.aspx"><strong>
+    Student</strong></a> &raquo; <strong><a id="ctl00_cpNavigation_linkBtnParentMenu" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cpNavigation$linkBtnParentMenu&quot;, &quot;&quot;, false, &quot;&quot;, &quot;http://apps.binusmaya.binus.ac.id/Services/StudentMenu/Finance.aspx?smid=ena6TeZXpeB1ai0mjN3Bew%3d%3d&quot;, false, true))">Finance</a></strong> &raquo; <strong>Student Finance Status</strong>
+
+               
+    
+
+<div class="description">
+    <span id="ctl00_menuDescription_ucmenuDesc_labelMenuDesc">Student Finance Status</span></div>
+
+               
+
+
+            </div>
+            <div class="itemContentService">
+            
+    	    
+    <div id="all">
+    
+    
+    
+    <table border="0">
+        <tr>
+            <td align="right" class="style2" width="167" >
+                Billing : 2500000
+            </td>
+        </tr>
+    </table>
+    
+    
+    <div id="ctl00_cpContent_panelData">
+	
+        
+                <table id="rptTable" class="tablebordersmaller">
+                    <tr id="header40">
+                        <th align="center">No.</th>
+                        <th align="center">Posted Date</th>
+                        <th align="center">Item</th>
+                        <th align="center">Term</th>
+                        <th align="center">Due Date</th>
+                        <th align="center">Charge</th>
+                        <th align="center">Payment</th>
+                        <th align="center">Refund</th>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">1</td>
+                        <td align="center">22 Oct 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-5400000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">2</td>
+                        <td align="center">17 Oct 2015</td>
+                        <td align="center">Fixed Tuition Fee</td>
+                        <td align="center">1520</td>
+                        <td align="center">21 Oct 2015</td>
+                        <td align="right">5400000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">3</td>
+                        <td align="center">16 Oct 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-2860000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">4</td>
+                        <td align="center">01 Oct 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-346500</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">5</td>
+                        <td align="center">21 Sep 2015</td>
+                        <td align="center">Textbook Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">30 Sep 2015</td>
+                        <td align="right">346500</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">6</td>
+                        <td align="center">21 May 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-2860000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">7</td>
+                        <td align="center">21 May 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-1650000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">8</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center"></td>
+                        <td align="right">-5720000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">9</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Fixed Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center"></td>
+                        <td align="right">-5400000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">10</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Lab Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center"></td>
+                        <td align="right">-1650000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">11</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Re-Registration Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center"></td>
+                        <td align="right">-22500</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">12</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">30 Sep 2015</td>
+                        <td align="right">2860000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">13</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Lab Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">20 May 2015</td>
+                        <td align="right">1650000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">14</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">20 May 2015</td>
+                        <td align="right">2860000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">15</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Re-Registration Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">15 Apr 2015</td>
+                        <td align="right">22500</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">16</td>
+                        <td align="center">13 May 2015</td>
+                        <td align="center">Fixed Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">15 Apr 2015</td>
+                        <td align="right">5400000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">17</td>
+                        <td align="center">06 May 2015</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">30 Sep 2015</td>
+                        <td align="right">2860000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">18</td>
+                        <td align="center">06 May 2015</td>
+                        <td align="center">Lab Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">20 May 2015</td>
+                        <td align="right">1650000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">19</td>
+                        <td align="center">06 May 2015</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">20 May 2015</td>
+                        <td align="right">2860000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">20</td>
+                        <td align="center">16 Apr 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-5400000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">21</td>
+                        <td align="center">16 Apr 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-22500</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">22</td>
+                        <td align="center">02 Apr 2015</td>
+                        <td align="center">Fixed Tuition Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">15 Apr 2015</td>
+                        <td align="right">5400000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">23</td>
+                        <td align="center">02 Apr 2015</td>
+                        <td align="center">Re-Registration Fee</td>
+                        <td align="center">1510</td>
+                        <td align="center">15 Apr 2015</td>
+                        <td align="right">22500</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">24</td>
+                        <td align="center">05 Mar 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-2600000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">25</td>
+                        <td align="center">05 Mar 2015</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-269000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">26</td>
+                        <td align="center">26 Feb 2015</td>
+                        <td align="center">Textbook Fee</td>
+                        <td align="center">1420</td>
+                        <td align="center">04 Mar 2015</td>
+                        <td align="right">269000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">27</td>
+                        <td align="center">21 Nov 2014</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-2600000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">28</td>
+                        <td align="center">21 Nov 2014</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-1650000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">29</td>
+                        <td align="center">13 Nov 2014</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-5400000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">30</td>
+                        <td align="center">08 Nov 2014</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1420</td>
+                        <td align="center">04 Mar 2015</td>
+                        <td align="right">2600000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">31</td>
+                        <td align="center">08 Nov 2014</td>
+                        <td align="center">Lab Fee</td>
+                        <td align="center">1420</td>
+                        <td align="center">19 Nov 2014</td>
+                        <td align="right">1650000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">32</td>
+                        <td align="center">08 Nov 2014</td>
+                        <td align="center">Variable Tuition Fee</td>
+                        <td align="center">1420</td>
+                        <td align="center">19 Nov 2014</td>
+                        <td align="right">2600000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">33</td>
+                        <td align="center">11 Oct 2014</td>
+                        <td align="center">Fixed Tuition Fee</td>
+                        <td align="center">1420</td>
+                        <td align="center">22 Oct 2014</td>
+                        <td align="right">5400000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr class="bgAbuE8">
+                        <td align="center">34</td>
+                        <td align="center">03 Oct 2014</td>
+                        <td align="center">Autodebet Payment Kemanggisan</td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="right"></td>
+                        <td align="right">-252000</td>
+                        <td align="right"></td>
+                    </tr>
+            
+                    <tr>
+                        <td align="center">35</td>
+                        <td align="center">27 Sep 2014</td>
+                        <td align="center">Textbook Fee</td>
+                        <td align="center">1410</td>
+                        <td align="center">30 Sep 2014</td>
+                        <td align="right">252000</td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                    </tr>
+            
+                   
+                </table>
+            
+    
+</div>
+    
+    
+    
+
+
+</div>
+<p class="notificationtext">
+    *) Any kind of cheating in any kind of letter will be punished with the Academic 
+    Sanction that put into effect
+</p>
+
+
+    	          
+   	 	    </div> <!--itemcontentservice closing-->
+   	 	    <!--section right-->        
+            <div class="contentNavigationRight">
+                
+            </div>   <!--contentNavigationRight closing-->
+        </div> <!--contentForService closing-->
+   	 	</div> <!--itemContent closing-->
+        </div> <!--groupItemFixed closing-->
+    </div> <!--groupWrapper closing-->
+         
+   <script type="text/javascript">
+        
+<!--       //--><![CDATA[//><!--
+       startList = function() {
+           if (document.getElementById) {
+               var baseId = document.getElementsByTagName('body')[0].id; // these 3 lines set currently selected item to on
+               var addclass = baseId;
+               document.getElementById(addclass).className = "on";
+               navRoot = document.getElementById("nav");
+               for (i = 0; i < navRoot.childNodes.length; i++) {
+                   node = navRoot.childNodes[i];
+                   if (node.nodeName == "LI") {
+                       node.onclick = function() {
+                           this.className = (this.className == "on") ? "off" : "on";
+                           setIframeHeight();
+                       }
+                   }
+               }
+           }
+       }
+       
+       //--><!]]>
+       
+       $(document).ready(function() {
+           $("#outRight").hide();
+           $("#nav_button").click(function() {
+               $("#outRight").animate({ width: "toggle",
+                   height: "toggle"
+               }, 700);
+               setIframeHeight();
+           });           
+       });
+
+
+       function setIframeHeight(pipeLink, pipeMinHeight) {
+           var pipe = document.getElementById('pipe');
+           //var height = document.getElementById("divDataContent").offsetHeight + 20;
+           var height = getDocHeight();
+
+           if (pipeMinHeight)
+               height = (height <= pipeMinHeight ? pipeMinHeight : height); 
+
+           if (pipeLink === undefined)
+               pipeLink = "http://binusmaya.binus.ac.id/Pipe.aspx";
+
+           pipe.src = pipeLink + '?height=' + height + '&url=' + location.href;
+
+
+       }
+
+       function getDocHeight() {
+           var D = document;
+           return Math.max(
+                Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+                Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+                Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+            );
+       }
+
+       window.onload = function(e) {
+           setIframeHeight();
+       };
+       
+</script>
+
+<iframe id="pipe" src='' style="display:none;" ></iframe>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+setTimeout('setIframeHeight(document.getElementById(\'all\').offsetHeight)', 250);Sys.Application.initialize();
+//]]>
+</script>
+</form>
+
+
+
+
+</body>
+</html>

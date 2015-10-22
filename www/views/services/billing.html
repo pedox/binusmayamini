@@ -11,24 +11,31 @@
               <div class="card">
                 <div class="billing">
                   <h1>Billing</h1>
-                  <p class="bill-info">Rp -. {{toMoney(financeList.billing)}}</p>
+                  <p class="bill-info">Rp -. {{ toMoney(financeList.billing) }}</p>
                   <p class="last-update">Last Update: {{ financeList.lastUpdate }}</p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card" ng-if="financeList.data.length > 0">
                 <div ng-repeat="data in financeList.data">
                   <div class="item item-divider">{{data.date}}</div>
                   <div class="item" ng-repeat="dat in data.data">
                     <h2>{{dat.title}}</h2>
+                    <div class="icon ion-arrow-up-b" ng-if="dat.payment > 0"></div>
+                    <div class="icon ion-arrow-down-b" ng-if="dat.charge > 0"></div>
                     <div class="row">
                       <div class="col col-50">
-                        <p><strong>Term :</strong> {{dat.term}}</p>
-                        <p><strong>Charge :</strong> {{dat.charge}}</p>
-                        <p><strong>Refund :</strong> {{data.refund}}</p>
+                        <p><strong>Term :</strong> </p>
+                        <p><strong>Charge :</strong></p>
+                        <p><strong>Refund :</strong></p>
+                        <p><strong>Payment :</strong></p>
+                        <p><strong>Due Date :</strong></p>
                       </div>
                       <div class="col col-50">
-                        <p><strong>Payment :</strong> {{dat.payment}}</p>
-                        <p><strong>Due Date :</strong> {{dat.due}}</p>
+                        <p>{{dat.term}}&nbsp;</p>
+                        <p>Rp. {{ toMoney(dat.charge) }}&nbsp;</p>
+                        <p>Rp. {{ toMoney(data.refund) }}&nbsp;</p>
+                        <p>Rp. {{ toMoney(dat.payment) }}&nbsp;</p>
+                        <p>{{dat.due}}&nbsp;</p>
                       </div>
                     </div>
                   </div>
