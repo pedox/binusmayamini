@@ -1,103 +1,14 @@
 <ion-view view-title="Exam Schedule">
-      <ion-tabs class="tabs-positive">
-        <ion-tab title="Theory">
-          <ion-content>
-            <ion-refresher
-                pulling-text="Pull to refresh..."
-                spinner="android"
-                on-refresh="doRefresh(1)">
-            </ion-refresher>
-            <div class="list exam-schedule" ng-show="examTheory">
-              <div ng-repeat="data in examTheory">
-                <div class="item item-divider">{{data.date}}</div>
-                <div class="item" ng-repeat="dat in data.data">
-                  <h2>{{dat.course}}</h2>
-                  <div class="row">
-                    <div class="col col-50">
-                      <p><strong>Time :</strong> {{dat.time}}</p>
-                      <p><strong>Room :</strong> {{dat.room}}</p>
-                      <p><strong>Seat :</strong> {{dat.seat}}</p>
-                    </div>
-                    <div class="col col-50">
-                      <p><strong>Buliding :</strong> {{dat.building}}</p>
-                      <p><strong>Class :</strong> {{dat.myClass}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="alert-not-found caution" ng-hide="examTheory">
-                <i class="icon ion-calendar"></i>
-                <h1>No exam schedule for this time</h1>
-                <p>Pull Down to refresh ...</p>
-            </div>
-          </ion-content>
-        </ion-tab>
-        <ion-tab title="Praticum">
-          <ion-content>
-            <ion-refresher
-                pulling-text="Pull to refresh..."
-                spinner="android"
-                on-refresh="doRefresh(0)">
-            </ion-refresher>
-            <div class="list exam-schedule" ng-show="examPracticum">
-              <div ng-repeat="data in examPracticum">
-                <div class="item item-divider">{{data.date}}</div>
-                <div class="item" ng-repeat="dat in data.data">
-                  <h2>{{dat.course}}</h2>
-                  <div class="row">
-                    <div class="col col-50">
-                      <p><strong>Time :</strong> {{dat.time}}</p>
-                      <p><strong>Room :</strong> {{dat.room}}</p>
-                      <p><strong>Seat :</strong> {{dat.seat}}</p>
-                    </div>
-                    <div class="col col-50">
-                      <p><strong>Buliding :</strong> {{dat.building}}</p>
-                      <p><strong>Class :</strong> {{dat.myClass}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="alert-not-found caution" ng-hide="examPracticum">
-                <i class="icon ion-calendar"></i>
-                <h1>No exam schedule for this time</h1>
-                <p>Pull Down to refresh ...</p>
-            </div>
-          </ion-content>
-        </ion-tab>
-        <ion-tab title="Substitute">
-          <ion-content>
-            <ion-refresher
-                pulling-text="Pull to refresh..."
-                spinner="android"
-                on-refresh="doRefresh(2)">
-            </ion-refresher>
-            <div class="list exam-schedule" ng-show="examSubs">
-              <div ng-repeat="data in examSubs">
-                <div class="item item-divider">{{data.date}}</div>
-                <div class="item" ng-repeat="dat in data.data">
-                  <h2>{{dat.course}}</h2>
-                  <div class="row">
-                    <div class="col col-50">
-                      <p><strong>Time :</strong> {{dat.time}}</p>
-                      <p><strong>Room :</strong> {{dat.room}}</p>
-                      <p><strong>Seat :</strong> {{dat.seat}}</p>
-                    </div>
-                    <div class="col col-50">
-                      <p><strong>Buliding :</strong> {{dat.building}}</p>
-                      <p><strong>Class :</strong> {{dat.myClass}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="alert-not-found caution" ng-hide="examSubs">
-                <i class="icon ion-calendar"></i>
-                <h1>No exam schedule for this time</h1>
-                <p>Pull Down to refresh ...</p>
-            </div>
-          </ion-content>
-        </ion-tab>
-      </ion-tabs>
+    <ion-content>
+      <ion-refresher
+          pulling-text="Pull to refresh..."
+          spinner="android"
+          on-refresh="doRefresh()">
+      </ion-refresher>
+      <div class="alert-not-found caution" ng-hide="examScheduleList">
+        <i class="icon ion-calendar"></i>
+        <h1>No exam schedule for this time</h1>
+        <p>Pull Down to refresh ...</p>
+      </div>
+    </ion-content>
 </ion-view>

@@ -12,7 +12,7 @@ Created with [Ionicframework](ionicframework.com)
 
 - Android
 - WP8 (Soon)
-- iOS
+- iOS (Soon)
 
 ### Contribute
 
