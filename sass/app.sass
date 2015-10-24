@@ -128,14 +128,19 @@ $positive: #187aad
 			h1
 				font-size: 1em
 				font-weight: normal
-				margin-top: 10px
-				margin-right: 60px
-			.total
-				float: right
-				font-size: 2em
-				margin-right: 10px
-				margin-top: -30px
-				color: #E24545
+				margin-top: 0px
+			.more-detail
+				margin: 0px 0px
+				padding: 0px
+				border-bottom: 1px solid #D8D8D8
+				&:last-child
+					border: none
+				.col
+					padding: 5px 0px
+					&.total-absc
+						text-align: right
+						> i
+							margin-left: 10px
 
 .login-name
 	text-transform: capitalize
@@ -347,3 +352,34 @@ $positive: #187aad
 
 .promptPass-form
 	padding: 0px 10px 0px 10px !important
+
+.exam-schedule-list
+	.group-time
+		text-align: center
+		text-transform: uppercase
+		display: block
+		color: #767676
+		margin: 15px 0px
+	.card
+		&.today .item
+			box-shadow: 0px 5px 0px 0px #13B183 inset
+		&.tomorrow .item
+			box-shadow: 0px 5px 0px 0px #F5A448 inset
+		.item
+			.term, .summary
+				font-size: 12px
+				color: #8D8D8D
+			h2
+				color: #187AAD
+				margin: 10px 0px
+			.row
+				.col
+					text-align: center
+					span
+						display: block
+						font-size: 18px
+						margin: 15px 0px
+					label
+						text-transform: uppercase
+						font-size: 12px
+						color: #767676

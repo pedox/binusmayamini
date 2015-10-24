@@ -80,16 +80,16 @@ app.controller('FinanceController',
           }, function() {
             reject("can't access to main frame");
           })
-            .then(function() {
+            .then(function(d) {
               return BinusMaya.api(
-                $("#ctl00_cpContent_rptMainMenuStudent_ctl06_linkMenuStudent").attr("href"), 'get', {}, true
+                $(d.result.result).find("#ctl00_cpContent_rptMainMenuStudent_ctl06_linkMenuStudent").attr("href"), 'get', {}, true
               );
             }, function() {
               reject("can't access to main frame");
             })
-            .then(function() {
+            .then(function(d) {
               return BinusMaya.api(
-                $("#ctl00_cpContent_rptSubMenu_ctl03_linkSubMenu").attr("href"), 'get', {}, true
+                $(d.result).find("#ctl00_cpContent_rptSubMenu_ctl03_linkSubMenu").attr("href"), 'get', {}, true
               );
             }, function() {
               reject("can't access to main frame");

@@ -9,7 +9,10 @@
           <div class="list absence" ng-show="absence">
             <div class="item" ng-repeat="d in absence">
               <h1>{{ d.name }}</h1>
-              <div class="total">{{ d.total }}</div>
+              <div class="more-detail row" ng-repeat="c in d.absence">
+                  <div class="col col-75">{{ c.component }}</div>
+                  <div class="col total-absc">{{c.total}}/{{c.max}} <i class="icon ion-calendar {{c.status}}"></i></div>
+              </div>
             </div>
           </div>
           <div class="alert-not-found caution" ng-hide="absence">
