@@ -5,27 +5,29 @@
             spinner="android"
             on-refresh="doRefresh()">
         </ion-refresher>
-        <div class="list custom-list" ng-show="isSchedule">
-            <div ng-repeat="data in schedule">
-                <div class="item item-divider" ng-class="getState(data.date)">{{ data.date }}</div>
-                <a ng-href="{{ '#/myclass-detail/'+dat.code }}" class="item item-avatar" ng-repeat="dat in data.data" ng-class="getCourseState(data.date, dat.time)">
-                    <div class="icon-outer" ng-switch on="dat.state">
-                        <span class="icon-sign default" ng-switch-when="F2F"><i class="icon ion-calendar"></i></span>
-                        <span class="icon-sign gslc" ng-switch-when="GSLC"><i class="icon ion-home"></i></span>
-                        <span class="icon-sign ss" ng-switch-when="SS"><i class="icon ion-android-warning"></i></span>
-                        <span class="icon-sign practicum" ng-switch-when="Practicum"><i class="icon ion-erlenmeyer-flask"></i></span>
-                        <span class="icon-sign default" ng-switch-default><i class="icon ion-calendar"></i></span>
-                    </div>
-                    <h2 ng-bind-html="dat.course"></h2>
-                    <p><span class="room">{{ dat.room }}</span> <span class="my-class">{{ dat.myClass }}</span> <span>{{dat.state }}</span> <span class="building">{{ dat.building }}</span></p>
-                    <time>{{ dat.time }}</time>
-                </a>
+        <div ng-show="isSchedule">
+            <div class="list custom-list" ng-show="schedule.length > 0">
+                <div ng-repeat="data in schedule">
+                    <div class="item item-divider" ng-class="getState(data.date)">{{ data.date }}</div>
+                    <a ng-href="{{ '#/myclass-detail/'+dat.code }}" class="item item-avatar" ng-repeat="dat in data.data" ng-class="getCourseState(data.date, dat.time)">
+                        <div class="icon-outer" ng-switch on="dat.state">
+                            <span class="icon-sign default" ng-switch-when="F2F"><i class="icon ion-calendar"></i></span>
+                            <span class="icon-sign gslc" ng-switch-when="GSLC"><i class="icon ion-home"></i></span>
+                            <span class="icon-sign ss" ng-switch-when="SS"><i class="icon ion-android-warning"></i></span>
+                            <span class="icon-sign practicum" ng-switch-when="Practicum"><i class="icon ion-erlenmeyer-flask"></i></span>
+                            <span class="icon-sign default" ng-switch-default><i class="icon ion-calendar"></i></span>
+                        </div>
+                        <h2 ng-bind-html="dat.course"></h2>
+                        <p><span class="room">{{ dat.room }}</span> <span class="my-class">{{ dat.myClass }}</span> <span>{{dat.state }}</span> <span class="building">{{ dat.building }}</span></p>
+                        <time>{{ dat.time }}</time>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="alert-not-found" ng-hide="isSchedule">
-            <i class="icon ion-android-close"></i>
-            <h1>Schedule Not Found</h1>
-            <p>Pull Down to refresh ...</p>
+            <div class="alert-not-found" ng-hide="schedule.length > 0">
+                <i class="icon ion-android-close"></i>
+                <h1>Schedule Not Found</h1>
+                <p>Pull Down to refresh ...</p>
+            </div>
         </div>
     </ion-content>
 </ion-view>

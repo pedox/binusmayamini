@@ -15,12 +15,12 @@ var view_path = 'views/',
 
 var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory'])
 
-.run(function($ionicPlatform, $rootScope, $ionicHistory, $ionicNavBarDelegate, BinusMaya) {
+.run(function($ionicPlatform, $rootScope, $ionicHistory, $ionicNavBarDelegate, BinusMaya, $timeout) {
 
   $rootScope.login = (typeof localStorage.islogin == "undefined" ? false : localStorage.islogin);
   $rootScope.leftMenu = false;
+  $rootScope.profilePicture = false;
   $rootScope.loginName = typeof localStorage.fname == "undefined" ? null : localStorage.fname.toLowerCase();
-  $rootScope.profileImage = typeof localStorage.profileImage == "undefined" ? false : localStorage.profileImage;
   delete localStorage.cookie;
   delete localStorage.templogin;
 
@@ -30,11 +30,14 @@ var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory']
     };
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
+    /*if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
+    }*/
     if (window.StatusBar) {
       StatusBar.styleDefault();
+    }
+    if(localStorage.islogin) {
+      getProfileImage();  
     }
   });
 
@@ -50,17 +53,31 @@ var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory']
     location.reload();
   };
 
-  $rootScope.getProfileImage = function() {
+  var getProfileImage = function() {
     /** peform avatar **/
-    BinusMaya.getProfileImage(
-      function(done) {
-        localStorage.profileImage = done;
-        $rootScope.profileImage = done;
-      },
-      function() {
+    console.log("perform");
+    if(localStorage.profilePicture) {
+      $rootScope.profilePicture = localStorage.profilePicture;
+      console.log("perform");
+    } else {
+      if (typeof httpclient === "undefined") {
+        console.log("make request to another !");  
+      } else {
+        console.log("make request !");
+        BinusMaya.profilePicture()
+          .then(function(done) {
+            console.log("Apply !");
+            $timeout(function(){
+              localStorage.profilePicture = done;
+              $rootScope.profilePicture = done;
+            });
+          }, function() {
 
-      });
+          });
+      }
+    }
   };
+  
 
   if ($rootScope.login) {
     window.location.hash = '/schedule';

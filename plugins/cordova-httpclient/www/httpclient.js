@@ -18,6 +18,13 @@ var asynchttpclient = {
     }
     exec(success, error, this.pluginName, "get", [url, options]);
   },
+  image: function(url, success, error, options) {
+    options = typeof options === "undefined" ? options = {} : options;
+    if(!options.headers) {
+      options.headers = {};
+    }
+    exec(success, error, this.pluginName, "image", [url, options]);
+  },
   post: function(url, params, success, error, options) {
     options = typeof options === "undefined" ? options = {} : options;
     if(!options.headers) {

@@ -3,29 +3,31 @@
       <!--<ion-refresher
           pulling-text="Pull to refresh..."
           spinner="android"
-          on-refresh="doRefresh()">
+          on-refresh="doRefresh()" ng-show="showpage == 2">
       </ion-refresher>-->
       <div class="list my-class">
         <div class="item item-body">
+          <a href="javascript://" ng-click="refresh()" class="button button-icon icon ion-refresh" ng-show="showpage == 2" id="refresh-course"></a>
           <h2>{{ data.name }}</h2>
           <p>{{ data.code }} &mdash; {{ data.className }}</p>
           <ion-spinner icon="android" class="center-spinner" ng-show="state.loading"></ion-spinner>
           <div class="see-more" ng-show="state.isData">
             <div class="button-bar">
-              <a ng-click="switchTab(0)" class="button button-clear" ng-class="infoTab">Info</a>
-              <a ng-click="switchTab(1)" class="button button-clear" ng-class="topicsTab">Topics</a>
+              <a ng-click="switchTab(0)" class="button button-clear" ng-class="{'active':showpage == 0}">Info</a>
+              <a ng-click="switchTab(1)" class="button button-clear" ng-class="{'active':showpage == 1}">Topics</a>
+              <a ng-click="switchTab(2)" class="button button-clear" ng-class="{'active':showpage == 2}">Assigment</a>
             </div>
-            <div class="info-page" ng-hide="isPageTopic">
+            <div class="info-page" ng-show="showpage == 0">
               <h4>Course Description</h4>
               <div class="info">
-                <p>{{state.isData.main_description}}</p>
+                <p ng-bind-html="state.isData.main_description"></p>
               </div>
               <h4>Graduate Competency</h4>
               <div class="info">
-                <p>{{state.isData.grad_description}}</p>
+                <p ng-bind-html="state.isData.grad_description"></p>
               </div>
             </div>
-            <div class="topics-page" ng-show="isPageTopic">
+            <div class="topics-page" ng-show="showpage == 1">
               <ul>
                 <li ng-repeat="data in state.isData.course">
                   <h3>{{ data.topics }}</h3>
@@ -35,10 +37,41 @@
                     <span class="subdued">{{ data.date }}</span>
                   </p>
                   <ion-spinner icon="android" class="download-spinner" ng-show="linksSet[$index].isLoading"></ion-spinner>
-                  <a href="javascript://" ng-click="downloadCourse($index, data.links)" ng-hide="linksSet[$index].isLoading" class="button icon ion-android-download"></a>
+                  <a href="javascript://" ng-click="downloadCourse($index, data.links)" ng-hide="linksSet[$index].isLoading" class="button button-balanced icon ion-arrow-down-a button-outline"></a>
                 </li>
                 <li>
               </ul>
+            </div>
+            <div class="assigment-page" ng-show="showpage == 2">
+              <div class="alert-not-found caution" ng-hide="state.isData.assigment">
+                <i class="icon ion-android-checkbox-outline"></i>
+                <h1>No Assigment found</h1>
+                <p>Click Refresh button to reload</p>
+              </div>
+              <div class="card" ng-repeat="d in state.isData.assigment">
+                <div class="item">
+                  <div class="row top-content">
+                    <div class="col download-col">
+                      <ion-spinner icon="android" class="download-spinner left-ly" ng-show="linksSetAssigment[0].isLoading"></ion-spinner>
+                      <a href="javascript://" ng-click="downloadAssigment(0, null)" ng-hide="linksSetAssigment[0].isLoading" class="button button-balanced icon ion-arrow-down-a button-outline"></a>
+                    </div>
+                    <div class="col col-75">
+                      <div class="term">{{d.term}}</div>
+                      <h2>{{d.title}}</h2>
+                      <p class="summary">{{d.topics}}</p>
+                    </div>
+                  </div>
+                  <div class="description">
+                   {{d.desc}}
+                  </div>
+                  <div class="row main-stock">
+                    <div class="col"><span>{{d.upload ? 'OK' : 'N/A'}}</span><label>Upload</label></div>
+                    <div class="col"><span>{{d.deadline}}</span><label>Deadline</label></div>
+                    <div class="col"><span>{{d.checked ? 'OK' : 'N/A'}}</span><label>Checked</label></div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

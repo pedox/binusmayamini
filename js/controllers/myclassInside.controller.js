@@ -3,8 +3,8 @@
  * @author Naufal <naufal@martabakang.us>
  */
 app.controller('MyClassDetailController',
-  function($scope, BinusMaya, $ionicNavBarDelegate, $state, $location,
-    $stateParams, $timeout, $rootScope, $ionicPlatform, $q, $ionicPopup, dataset) {
+  function($scope, BinusMaya, $ionicNavBarDelegate, $state, $location, $http, $ionicScrollDelegate,
+    $stateParams, $timeout, $rootScope, $ionicPlatform, $q, $ionicPopup, dataset, $timeout, $ionicLoading) {
 
     $scope.classData = (typeof localStorage.myClass !== "undefined" ? JSON.parse(localStorage.myClass) : false);
     $scope.state = {
@@ -12,57 +12,100 @@ app.controller('MyClassDetailController',
       loading: true
     };
     $scope.data = $scope.classData[dataset];
-    $scope.isPageTopic = false;
+    $scope.showpage = 0;
+
+    $scope.linksSetAssigment = [];
+    $scope.linksSet = [];
 
     var getClassDetail = function(url) {
       return $q(function(resolve, reject) {
-        BinusMaya.checkLogin()
-          .then(function() {
-            return BinusMaya.api('/', 'get');
-          }, function() {
-            // Fail to re-login
-            reject("can't re-auth your account");
-          })
-          // Load These Page
-          .then(function(d) {
-            return BinusMaya.frame(
-              $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
-            );
-          }, function() {
-            reject("can't access to main frame");
-          })
-          .then(function(c) {
-            return BinusMaya.api(_bimay_api_url + '/LMS/' + url, 'get', {}, true);
-          }, function() {
-            reject("can't access to my class");
-          })
-          .then(function(d) {
-            var done = d.result;
-            var desc_main = $(done).find("#desc_course_desc > span").html(),
-              desc_grad = $(done).find("#desc_grad_compete > span").html(),
-              course = [];
-
-            $(done).find("#ctl00_ContentPlaceHolder1_pnlContentTheory table tbody tr").each(function(i, d) {
-              if (i !== 0) {
-                course.push({
-                  session: parseInt($(d).find("td:eq(0) > span").html()),
-                  mode: $(d).find("td:eq(1) > span").html(),
-                  topics: $(d).find("td:eq(2) > a").html(),
-                  date: $(d).find("td:eq(3) > span").html(),
-                  links: $(d).find("td:eq(4) > input").attr('name')
-                });
-              }
-            });
-
-            var _reData = {
-              main_description: desc_main,
-              grad_description: desc_grad,
-              course: course
-            };
-            resolve(_reData);
-          }, function() {
-            reject("can't access to course page");
+        var returnResponse = function(data) {
+          var desc_main = $(data).find("#desc_course_desc > span").html(),
+              desc_grad = $(data).find("#desc_grad_compete > span").html(),
+              course = [], 
+              assigment = [];
+          $(data).find("#ctl00_ContentPlaceHolder1_pnlContentTheory table tbody tr").each(function(i, d) {
+            if (i !== 0) {
+              course.push({
+                session: parseInt($(d).find("td:eq(0) > span").html()),
+                mode: $(d).find("td:eq(1) > span").html(),
+                topics: $(d).find("td:eq(2) > a").html(),
+                date: $(d).find("td:eq(3) > span").html(),
+                links: $(d).find("td:eq(4) > input").attr('name')
+              });
+            }
           });
+          $(data).find("#ctl00_ContentPlaceHolder1_pnlMainAssignment table tbody tr").each(function(i, d) {
+            if (i !== 0) {
+              assigment.push({
+                term: 'Main Assigment',
+                session: parseInt($(d).find("td").eq(0).text()),
+                topics: $(d).find("td").eq(1).text(),
+                title: $(d).find("td").eq(2).text(),
+                desc: $(d).find("td").eq(3).text(),
+                deadline: $(d).find("td").eq(4).text(),
+                upload: $(d).find("td").eq(5).find("img").length ? true : false,
+                checked: $(d).find("td").eq(6).find("img").length ? true : false,
+                link: $(d).find("td").eq(7).find("input:eq(0)").attr('name')
+              });
+            }
+          });
+          $(data).find("#ctl00_ContentPlaceHolder1_pnlAdditionalAssignment2 table tbody tr").each(function(i, d) {
+            if (i !== 0) {
+              assigment.push({
+                term: 'Additional Assigment',
+                session: parseInt($(d).find("td").eq(0).text()),
+                topics: $(d).find("td").eq(1).text(),
+                title: $(d).find("td").eq(2).text(),
+                desc: $(d).find("td").eq(3).text(),
+                deadline: $(d).find("td").eq(4).text(),
+                upload: $(d).find("td").eq(5).find("img").length ? true : false,
+                checked: $(d).find("td").eq(6).find("img").length ? true : false,
+                link: $(d).find("td").eq(7).find("input:eq(0)").attr('name')
+              });
+            }
+          });
+
+          return {
+            main_description: desc_main,
+            grad_description: desc_grad,
+            assigment: assigment.length > 0 ? assigment : false,
+            course: course
+          };
+        };
+
+        if (typeof httpclient === "undefined") {
+          $http.get('http://localhost:2505/myclass-inside.html')
+            .then(function(d) {
+              resolve(returnResponse(d.data));
+            }, reject);
+        } else {
+          BinusMaya.checkLogin()
+            .then(function() {
+              return BinusMaya.api('/', 'get');
+            }, function() {
+              // Fail to re-login
+              reject("can't re-auth your account");
+            })
+            // Load These Page
+            .then(function(d) {
+              return BinusMaya.frame(
+                $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
+              );
+            }, function() {
+              reject("can't access to main frame");
+            })
+            .then(function(c) {
+              return BinusMaya.api(_bimay_api_url + '/LMS/' + url, 'get', {}, true);
+            }, function() {
+              reject("can't access to my class");
+            })
+            .then(function(d) {
+              resolve(returnResponse(d.result));
+            }, function() {
+              reject("can't access to course page");
+            });
+        }
       });
     };
 
@@ -82,25 +125,11 @@ app.controller('MyClassDetailController',
       $scope.state.isData = $scope.classData[dataset].detail;
     }
 
-    if ($scope.isPageTopic === false) {
-      $scope.infoTab = 'active';
-      $scope.topicsTab = '';
-    } else {
-      $scope.infoTab = '';
-      $scope.topicsTab = 'active';
-    }
-
     $scope.switchTab = function(state) {
-      if (state === 0) {
-        $scope.isPageTopic = false;
-        $scope.infoTab = 'active';
-        $scope.topicsTab = '';
-      }
-      if (state === 1) {
-        $scope.isPageTopic = true;
-        $scope.infoTab = '';
-        $scope.topicsTab = 'active';
-      }
+      $scope.showpage = state;
+      setTimeout(function() {
+        $ionicScrollDelegate.resize();
+      }, 100);
     };
 
     var errHandle = function(msg) {
@@ -109,6 +138,34 @@ app.controller('MyClassDetailController',
         template: msg
       });
       $scope.$broadcast('scroll.refreshComplete');
+    };
+
+    $scope.downloadAssigment = function(index, links) {
+      $scope.linksSetAssigment[index] = {isLoading: true};
+      $timeout(function() {
+        $scope.linksSetAssigment[index] = {isLoading: false};
+      }, 10000);
+    };
+
+    $scope.refresh = function() {
+      
+      $ionicLoading.show({template: '<ion-spinner icon="android" class="overlay-spinner"></ion-spinner> Loading...'});
+
+      getClassDetail($scope.classData[dataset].url)
+        .then(function(data) {
+          console.log(data);
+          $scope.classData[dataset].detail = data;
+          localStorage.myClass = JSON.stringify($scope.classData);
+          $scope.$applyAsync(function() {
+            $scope.state.loading = false;
+            $scope.state.isData = $scope.classData[dataset].detail;
+          });
+          $ionicLoading.hide();
+          $ionicScrollDelegate.resize();
+        }, function(msg) {
+          $ionicLoading.hide();
+          errHandle(msg);
+        });
     };
 
 

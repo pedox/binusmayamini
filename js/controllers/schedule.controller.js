@@ -3,7 +3,7 @@
  * @author Naufal <naufal@martabakang.us>
  */
 app.controller('ScheduleController',
-  function($scope, $ionicPopup, $timeout, $ionicHistory, $rootScope, $ionicPlatform, BinusMaya, $q, $http) {
+  function($scope, $ionicPopup, $timeout, $ionicHistory, $rootScope, $ionicPlatform, BinusMaya, $q, $http, $ionicLoading) {
 
     $rootScope.noHeader = false;
     $rootScope.leftMenu = true;
@@ -48,17 +48,6 @@ app.controller('ScheduleController',
     $scope.isSchedule = false;
     $scope.schedule = [];
 
-    if (localStorage.jadwal) {
-      try {
-        if (JSON.parse(localStorage.jadwal).length > 0) {
-          $scope.isSchedule = true;
-          $scope.schedule = JSON.parse(localStorage.jadwal);
-        }
-      } catch (e) {
-
-      }
-    }
-
     var toJson = function(data) {
       var hasil = [];
       $(data).find('tr').each(function(i, a) {
@@ -86,10 +75,15 @@ app.controller('ScheduleController',
           var _schedule = $(data).find("table"),
               today = toJson(_schedule.eq(0).html()),
               next = toJson(_schedule.eq(1).html()),
-              skedul = today.concat(next);
-            localStorage.jadwal = JSON.stringify(BinusMaya.grouping(skedul));
+              skedul = today.concat(next),
+              jadwal = BinusMaya.grouping(skedul);
+            if(jadwal.length > 0) {
+              localStorage.jadwal = JSON.stringify(jadwal);
+            }
             localStorage.lastUpdate = moment().format('D MMMM YYYY h:mm:ss');
-            return {jadwal: JSON.parse(localStorage.jadwal), lastUpdate: localStorage.lastUpdate};
+            return {
+              jadwal: jadwal, lastUpdate: localStorage.lastUpdate
+            };
         };
 
         if(typeof httpclient === "undefined") {
@@ -136,17 +130,15 @@ app.controller('ScheduleController',
     $scope.doRefresh = function() {
       refreshJadwal()
       .then(function(data) {
+        $ionicLoading.hide();
         $scope.$broadcast('scroll.refreshComplete');
         $rootScope.getLastUpdate();
-        if (data.jadwal.length > 0) {
-          $scope.isSchedule = true;
-          $scope.schedule = data.jadwal;
-        } else {
-          errHandle("No Schedule found");
-        }
+        $scope.isSchedule = true;
+        $scope.schedule = data.jadwal;
       }, errHandle);
 
       var errHandle = function(msg) {
+        $ionicLoading.hide();
         $ionicPopup.alert({
           title: 'Oops !',
           template: msg
@@ -154,5 +146,21 @@ app.controller('ScheduleController',
         $scope.$broadcast('scroll.refreshComplete');
       };
     };
+
+    if (localStorage.jadwal) {
+      try {
+        if (JSON.parse(localStorage.jadwal).length > 0) {
+          $scope.isSchedule = true;
+          $scope.schedule = JSON.parse(localStorage.jadwal);
+        }
+      } catch (e) {
+
+      }
+    } else {
+      $ionicPlatform.ready(function() {
+        $ionicLoading.show({templateUrl: 'views/module/loading.html',noBackdrop: true});
+        $scope.doRefresh();
+      });
+    }
 
   });

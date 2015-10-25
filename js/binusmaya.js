@@ -16,10 +16,12 @@ angular.module('BinusMayaFactory', [])
     },
     checkLogin: function() {
       var _t = this;
-      var login = JSON.parse(localStorage.loginId);
+      var login = localStorage.loginId ? JSON.parse(localStorage.loginId) : false;
       return $q(function(resolve, reject) {
         if (localStorage.templogin === true) {
           resolve(true);
+        } else if(login === false) {
+          reject("please login");
         } else {
           return _t.api('/', 'get')
             .then(function(d) {
@@ -94,7 +96,25 @@ angular.module('BinusMayaFactory', [])
           } else {
             reject(data);
           }
-        }, resolve);
+        }, reject);
+      });
+    },
+    profilePicture: function() {
+      var _t = this;
+      return $q(function(resolve, reject) {
+        _t.checkLogin()
+        .then(function() {
+          return _t.frame('/');
+        }, reject)
+        .then(function(d) { 
+          var url = $(d.result.result).find("#ctl00_cpRight_ucPhoto_imgProfilePic").attr("src");
+          httpclient.image(_t._bimay_api_url + "/home/" + url, function(d) { 
+            resolve('data:image/jpeg;base64,' + d.result.replace(/(\r\n|\n|\r)/gm,""));
+          }, reject, 
+          {
+            headers: _t.headers()
+          });
+        }, reject);
       });
     },
     promptPassword: function(location, scope) {
@@ -102,7 +122,7 @@ angular.module('BinusMayaFactory', [])
       var myPopup = $ionicPopup.show({
         template: '<p ng-show="promptPass.error">Incorrect Password</p><input type="password" class="promptPass-form" ng-model="promptPass.password">',
         title: 'Enter Binusmaya Password',
-        subTitle: 'Please enter binusmaya password to access this page',
+        subTitle: '',
         scope: scope,
         buttons: [{
           text: 'Cancel',

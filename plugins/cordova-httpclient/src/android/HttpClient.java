@@ -1,3 +1,21 @@
+/*
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+*/
 package com.pedox.plugin.HttpClient;
 
 import org.apache.cordova.CordovaWebView;
@@ -10,12 +28,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.util.Base64;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.FileAsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 
 
@@ -53,6 +79,12 @@ public class HttpClient extends CordovaPlugin {
         if(action.equals("get"))
         {
             this.getRequest(context, args.getString(0), args.getJSONObject(1), callbackContext);
+            return true;
+        }
+
+        if(action.equals("image"))
+        {
+            this.getImage(context, args.getString(0), args.getJSONObject(1), callbackContext);
             return true;
         }
 
@@ -95,12 +127,12 @@ public class HttpClient extends CordovaPlugin {
         client.get(url, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                HttpClient.handleResult(false, statusCode, headers, responseString, callbackContext);
+                HttpClient.handleResult(false, statusCode, headers, responseString, callbackContext, throwable);
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                HttpClient.handleResult(true, statusCode, headers, responseString, callbackContext);
+                HttpClient.handleResult(true, statusCode, headers, responseString, callbackContext, null);
             }
         });
 
@@ -119,24 +151,67 @@ public class HttpClient extends CordovaPlugin {
         client.post(url, params, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                HttpClient.handleResult(false, statusCode, headers, responseString, callbackContext);
+                HttpClient.handleResult(false, statusCode, headers, responseString, callbackContext, throwable);
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                HttpClient.handleResult(true, statusCode, headers, responseString, callbackContext);
+                HttpClient.handleResult(true, statusCode, headers, responseString, callbackContext, null);
             }
         });
     }
 
-    private static void handleResult(boolean success, int statusCode, Header[] headers, String responseString, CallbackContext callbackContext)
+    public void getImage(final Activity context, String url, JSONObject headers, final CallbackContext callbackContext) throws JSONException {
+        final AsyncHttpClient client = new AsyncHttpClient();
+        this.setArgument(client, headers);
+
+        client.get(url, new FileAsyncHttpResponseHandler(context) {
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
+                HttpClient.handleResult(false, statusCode, headers, "kekacauan", callbackContext, throwable);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, File file) {
+
+                InputStream inputStream = null;
+                try {
+                    inputStream = new FileInputStream(file.getPath());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                byte[] bytes;
+                byte[] buffer = new byte[8192];
+                int bytesRead;
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                try {
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, bytesRead);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                bytes = output.toByteArray();
+                String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                HttpClient.handleResult(true, statusCode, headers, encodedImage, callbackContext, null);
+            }
+        });
+    }
+
+    private static void handleResult(boolean success, int statusCode, Header[] headers, String responseString, CallbackContext callbackContext, Throwable throwable)
     {
         JSONObject result = new JSONObject();
         try {
             /** Set header **/
             JSONObject headerParam = new JSONObject();
-            for (Header param : headers) {
-                headerParam.put(param.getName(), param.getValue());
+            if(headers != null) {
+                for (Header param : headers) {
+                    headerParam.put(param.getName(), param.getValue());
+                }
+            }
+            if(throwable != null) {
+                result.put("error", throwable.getMessage());
             }
             result.put("result", responseString);
             result.put("code", statusCode);

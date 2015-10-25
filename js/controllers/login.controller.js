@@ -58,7 +58,7 @@ function($scope, $ionicPopup, $timeout, $ionicHistory, $ionicNavBarDelegate, $ro
             $rootScope.loginName = localStorage.fname.toLowerCase();
             $scope.loginClass = '';
             $scope.loading = false;
-            window.location.hash = '#/schedule';
+            location.reload();
             $ionicHistory.clearHistory();
             $ionicNavBarDelegate.showBackButton(false);
           }

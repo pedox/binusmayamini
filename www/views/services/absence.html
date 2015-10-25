@@ -7,11 +7,18 @@
       </ion-refresher>
         <!--<div class="protect" ng-show="isAllow">-->
           <div class="list absence" ng-show="absence">
-            <div class="item" ng-repeat="d in absence">
-              <h1>{{ d.name }}</h1>
-              <div class="more-detail row" ng-repeat="c in d.absence">
-                  <div class="col col-75">{{ c.component }}</div>
-                  <div class="col total-absc">{{c.total}}/{{c.max}} <i class="icon ion-calendar {{c.status}}"></i></div>
+            <div class="card" ng-repeat="d in absence">
+              <div class="item">
+                <h2>{{d.name}}</h2>
+                <div class="row main-stock" ng-repeat="c in d.absence">
+                  <div class="col">
+                    <span><i class="icon ion-ios-circle-filled" ng-class="c.status"></i></span>
+                    <label>Status</label>
+                  </div>
+                  <div class="col"><span>{{c.component}}</span><label>Component</label></div>
+                  <div class="col"><span>{{c.max}}</span><label>Max</label></div>
+                  <div class="col"><span>{{c.total}}</span><label>Absent</label></div>
+                </div>
               </div>
             </div>
           </div>

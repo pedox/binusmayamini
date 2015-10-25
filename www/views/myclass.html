@@ -5,17 +5,19 @@
           spinner="android"
           on-refresh="doRefresh()">
       </ion-refresher>
-      <div class="alert-not-found caution" ng-hide="classData">
-          <i class="icon ion-easel"></i>
-          <h1>My Class Not Found</h1>
-          <p>Pull Down to refresh ...</p>
-      </div>
-      <div class="list my-class card" ng-show="classData">
-        <div ng-repeat="data in classData">
-          <a ng-href="{{ '#/myclass-detail/'+data.code }}" class="item item-body">
-            <h2 ng-bind-html="data.name"></h2>
-            <p>{{data.code}} &mdash; {{data.className}}</p>
-          </a>
+      <div ng-show="classData">
+        <div class="alert-not-found caution" ng-hide="classData.length > 0">
+            <i class="icon ion-easel"></i>
+            <h1>My Class Not Found</h1>
+            <p>Pull Down to refresh ...</p>
+        </div>
+        <div class="list my-class card" ng-show="classData.length > 0">
+          <div ng-repeat="data in classData">
+            <a ng-href="{{ '#/myclass-detail/'+data.code }}" class="item item-body">
+              <h2 ng-bind-html="data.name"></h2>
+              <p>{{data.code}} &mdash; {{data.className}}</p>
+            </a>
+          </div>
         </div>
       </div>
     </ion-content>

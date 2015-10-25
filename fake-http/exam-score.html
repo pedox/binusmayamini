@@ -1,0 +1,947 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1"><title>
+	BINA NUSANTARA :: Exam Score
+</title><link rel="stylesheet" type="text/css" media="all" href="../Common/css/css.css" />
+
+<style type="text/css">
+		#tabs { height: 200px;} 
+		.tabs-bottom { position: relative; } 
+		.tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
+		.tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; background-color:#f9f9f9} 
+		.tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px;  background-color: Silver}
+		.ui-tabs-selected { margin-top: -3px !important; }
+	.style1
+    {
+        width: 262px;
+        height: 7px;
+    }
+	.style2
+    {
+        width: 167px;
+        height: 7px;
+    }
+</style>
+</head>
+
+<body id="lectureNav">
+    <form name="aspnetForm" method="post" action="ExamScore.aspx?smid=5VJMgpOOriS0YHDpvyDjmQ%3d%3d" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/Services/WebResource.axd?d=AedkaLRZnQvWq3I06JFKfdBoBmbk-0UriV7BhlYaGIfs2VKzfiYJ3gbWkgbRSJCrB1CE1Gg2YrlQ09bshNqR3ZAGju41&amp;t=635672579665252451" type="text/javascript"></script>
+
+
+<script src="/Services/ScriptResource.axd?d=HzemoJ5WmcjGZZTN5ftSWGK4DbjUwaEo0O_AOQn8pPq1Al43EWNc7W5Gx3ciGrnB_fgZ-V0-MfzCuir2Q58J9mbLHUdmzeogCBGPk9cpUufWQ0HUeY7cDrPDzZhs_ddvpug2c7A9G1TFeoBzlbuviadyjJWukuo54_Nx9XKZJiyOhZ3Z0&amp;t=c91bcb2" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/Services/ScriptResource.axd?d=H64qXQ7rrIAkDWtjEMBqF73zybYEWu0LhShL0567mozUirwsyRDnSg4v9GsfYFWuNjn4oQy0rBFmlRo90m_Un3Htc44_dx8fTDNzdVfBHvCUrb3YlwIPYKbqrrv008BaO5YyusvsVXT7gdYV7pod0CUXQX6tPPtyG60JKZgleMzzse9o0&amp;t=c91bcb2" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="FCF18797" />
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="8EClIK7hpPEf6HH9btnLpOtJ7mmBDr4R09uHTY4BkLsIcFjnbVLZYbw33766WqU3Uub8WRCALhI1lR8Ec-o7kHx9MLeD5IG3YEblouTvMALuV8oX0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDALBwP6qAgLtoeFzAsSOjYwCAoeZlrwFAoeZoocCAoeZzuoKAoeZ2s0DAtSdzo0GAtny5OMKAtry5OMKAtvy5OMKAv6X1roCPKEh8AfyCORiCNz+u9zYkOQIqSY=" />
+</div>
+   
+	
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+    
+    <script type="text/javascript" src="http://apps.binusmaya.binus.ac.id/Services/Common/js/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/commonui.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/jquery.min.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/draganddrop.js"></script>
+    
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/SpryMenuBar.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/SpryAccordion.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/SpryTabbedPanels.js"></script>
+    <script type="text/javascript" src="http://binusmaya.binus.ac.id/Common/js_Apps/contentslider.js"></script>
+    
+ <!--script for hidden insidemenu tabs, e.g Jadwal Kuliah, Nilai Ujian--> 
+	
+    <div id="sort2Service" class="sort2Service groupWrapperService" style="width:760px !important;">
+    <div id="feeds" class="groupItemFixed">
+        
+        <div class="itemContent">
+ 
+     
+        <div id="tabs_Style">
+		    <ul>
+                <li id="ctl00_tabStudent"><a class="active" href="http://apps.binusmaya.binus.ac.id/Services/studentMenuContent.aspx">Student</a></li>
+                
+                <li><a href="http://apps.binusmaya.binus.ac.id/Services/commonMenuContent.aspx">General</a></li>
+            </ul>
+        </div>
+     
+     	<div class="contentForService">
+            <div>
+               
+    <a href="../commonMenuContent.aspx"><strong>Services</strong></a> &raquo; <a href="../studentMenuContent.aspx"><strong>Student</strong></a> &raquo; <strong><a id="ctl00_cpNavigation_linkBtnParentMenu" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cpNavigation$linkBtnParentMenu&quot;, &quot;&quot;, false, &quot;&quot;, &quot;http://apps.binusmaya.binus.ac.id/Services/studentMenu/Score.aspx?smid=8ipuVR%2fQ1iDllh3joNGlsg%3d%3d&quot;, false, true))">Grades</a></strong> &raquo; <strong>Exam Score</strong>
+
+               
+    
+
+<div class="description">
+    <span id="ctl00_menuDescription_ucmenuDesc_labelMenuDesc">Current Semester Theory and Practicum Score Information</span></div>
+
+               
+            </div>
+            <div class="itemContentService">
+            
+    	    
+    <div id="all">
+<div id="ctl00_cpContent_S1Section">
+        <ul style="background-image:none">
+         <li>Undergraduate Program</li>
+         </ul>
+         <table border="0">
+        <tr>
+            <td class="style1" align="left" width="292">
+                Year :
+                <!---->
+                <select name="ctl00$cpContent$ddlPeriodYear" onchange="javascript:setTimeout('__doPostBack(\'ctl00$cpContent$ddlPeriodYear\',\'\')', 0)" id="ctl00_cpContent_ddlPeriodYear">
+	<option selected="selected" value="2014">2014</option>
+	<option value="2013">2013</option>
+	<option value="2012">2012</option>
+	<option value="2011">2011</option>
+
+</select>
+            </td>
+            <td align="right" class="style2" width="167">
+                Semester : 
+                <!---->
+                <select name="ctl00$cpContent$ddlPeriodSemester" onchange="javascript:setTimeout('__doPostBack(\'ctl00$cpContent$ddlPeriodSemester\',\'\')', 0)" id="ctl00_cpContent_ddlPeriodSemester">
+	<option value="3">3</option>
+	<option value="2">2</option>
+	<option selected="selected" value="1">1</option>
+
+</select>
+            </td>
+        </tr>
+</table>
+
+
+<table cellSpacing="0" cellPadding="0" width="500">
+						<tr>
+							<td vAlign="top" width="500" height="100">
+								<DIV id="element1">
+									<table cellSpacing="0" cellPadding="0">
+										<tr>
+											<td width="500">
+											<ul style="background-image:none"><li>Theory Score</li>
+         </ul></td>
+										</tr>
+										<tr>
+											<td width="500" height="2"></td>
+										</tr>
+										<tr>
+											<td vAlign="top" width="500">
+											
+											<table cellpadding="0" cellspacing="0">
+<tr>
+	<td width=490 align=center valign=top>
+	</td>
+</tr>
+	
+		<tr>
+			<td>
+				<table class="tablebordersmaller" width="680">
+					<tr>
+						<th width="45" height="20"  align="center">Course Code 
+								</th>
+						<th width="140" height="20"  align="center">Course Name 
+								</th>
+						<th width="25" height="20"  align="center">SKS</th>
+						<th width="35" height="20"  align="center">Class</th>
+						<th width="25" height="20"  align="center">Abs.</th>
+						<th width="60" height="20"  align="center">TM</th>
+						<th width="60" height="20"  align="center">Mid</th>
+						<th width="60" height="20"  align="center">Prac.</th>
+						<th width="60" height="20"  align="center">Final</th>
+						<th width="30" height="20"  align="center">Result</th>
+					</tr>
+		
+			<tr class="bgAbuE8">
+				<td height="20" align="center">EESE1</td>
+				<td height="20" align="center">EESE - Employability and Entrepreneurial Skills Enhancement</td>
+				<td height="20" align="center">0/0</td>
+				<td height="20" align="center">LF01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorAbsensi" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorTM" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorTglUpdateTM" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorUTS" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorTglUpdateUTS" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorPraktikum" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorTglUpdatePraktikum" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorUAS" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorTglUpdateUAS" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl01_anchorAkhir" class="normaltext">N/A</a></td>
+			</tr>
+		
+			<tr class="bgPutih">
+				<td height="20" align="center">Z0022</td>
+				<td height="20" align="center">Character Building: Pancasila</td>
+				<td height="20" align="center">2/0</td>
+				<td height="20" align="center">LF01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorAbsensiAlternating" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorTMAlternating" class="normaltext">84</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorTglUpdateTMAlternating" class="normaltext">17 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorUTSAlternating" class="normaltext">80</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorTglUpdateUTSAlternating" class="normaltext">09 Dec 14</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorPraktikumAlternating" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorTglUpdatePraktikumAlternating" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorUASAlternating" class="normaltext">72</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorTglUpdateUASAlternating" class="normaltext">17 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl02_anchorAkhirAlternating" class="normaltext">80</a></td>
+			</tr>
+		
+			<tr class="bgAbuE8">
+				<td height="20" align="center">Z0081</td>
+				<td height="20" align="center">Algoritma dan Pemrograman</td>
+				<td height="20" align="center">4/2</td>
+				<td height="20" align="center">BK01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorAbsensi" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorTM" class="normaltext">95</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorTglUpdateTM" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorUTS" class="normaltext">88</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorTglUpdateUTS" class="normaltext">09 Jan 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorPraktikum" class="normaltext">90</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorTglUpdatePraktikum" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorUAS" class="normaltext">100</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorTglUpdateUAS" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl03_anchorAkhir" class="normaltext">94</a></td>
+			</tr>
+		
+			<tr class="bgPutih">
+				<td height="20" align="center">Z0085</td>
+				<td height="20" align="center">Konsep Bahasa Pemrograman</td>
+				<td height="20" align="center">2/0</td>
+				<td height="20" align="center">LF01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorAbsensiAlternating" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorTMAlternating" class="normaltext">90</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorTglUpdateTMAlternating" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorUTSAlternating" class="normaltext">52</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorTglUpdateUTSAlternating" class="normaltext">09 Jan 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorPraktikumAlternating" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorTglUpdatePraktikumAlternating" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorUASAlternating" class="normaltext">62</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorTglUpdateUASAlternating" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl04_anchorAkhirAlternating" class="normaltext">80</a></td>
+			</tr>
+		
+			<tr class="bgAbuE8">
+				<td height="20" align="center">Z0120</td>
+				<td height="20" align="center">English in Focus</td>
+				<td height="20" align="center">2/0</td>
+				<td height="20" align="center">LF01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorAbsensi" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorTM" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorTglUpdateTM" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorUTS" class="normaltext">86</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorTglUpdateUTS" class="normaltext">09 Jan 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorPraktikum" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorTglUpdatePraktikum" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorUAS" class="normaltext">80</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorTglUpdateUAS" class="normaltext">17 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl05_anchorAkhir" class="normaltext">83</a></td>
+			</tr>
+		
+			<tr class="bgPutih">
+				<td height="20" align="center">Z0184</td>
+				<td height="20" align="center">Matematika Diskrit</td>
+				<td height="20" align="center">4/0</td>
+				<td height="20" align="center">LF01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorAbsensiAlternating" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorTMAlternating" class="normaltext">90</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorTglUpdateTMAlternating" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorUTSAlternating" class="normaltext">60</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorTglUpdateUTSAlternating" class="normaltext">09 Jan 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorPraktikumAlternating" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorTglUpdatePraktikumAlternating" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorUASAlternating" class="normaltext">60</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorTglUpdateUASAlternating" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl06_anchorAkhirAlternating" class="normaltext">75</a></td>
+			</tr>
+		
+			<tr class="bgAbuE8">
+				<td height="20" align="center">Z0238</td>
+				<td height="20" align="center">Calculus</td>
+				<td height="20" align="center">4/0</td>
+				<td height="20" align="center">LF01</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorAbsensi" class="normaltext">N/A</a></td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorTM" class="normaltext">90</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorTglUpdateTM" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorUTS" class="normaltext">30</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorTglUpdateUTS" class="normaltext">05 Dec 14</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorPraktikum" class="normaltext">N/A</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorTglUpdatePraktikum" class="normaltext"></a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorUAS" class="normaltext">30</a><br/>
+					<a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorTglUpdateUAS" class="normaltext">24 Feb 15</a>
+				</td>
+				<td height="20" align="center"><a id="ctl00_cpContent_repeaterTheoriticalScore_ctl07_anchorAkhir" class="normaltext">80</a></td>
+			</tr>
+		 
+		</table>
+		</td>
+		</tr>
+		
+	</table>
+	</td>
+	</tr>
+</table>
+</DIV>
+											
+											</td>
+										</tr>
+										
+										<tr>
+											<td width="500" height="10"></td>
+										</tr>
+										<tr>
+											<td style="HEIGHT: 22px" width="500">
+											<ul style="background-image:none"><li>Practicum Score</li>
+         </ul>
+         </td>
+										</tr>
+										<tr>
+											<td width="500" height="2"></td>
+										</tr>
+										<tr>
+											<td vAlign="top" width="500"><!--uc2 -->
+												
+												<table cellpadding="0" cellspacing="0">
+<tr>
+	<td width=490 valign = top align=center>	
+	</td>
+	
+			<tr>
+			<td>
+			<table class="tablewithborder" width="680">
+				<tr>
+					<th align=center width=45  height=20>
+						CourseCode</th>
+					<th align=center width=220  height=20>
+						CourseName</th>
+					<th align=center width=35  height=20>
+						Class</th>
+					<th align=center width=60  height=20>
+						Mid</th>
+					<th align=center width=60  height=20>
+						Final</th>
+					<th align=center width=60  height=20>
+						Project</th>
+					<th align=center width=60  height=20>
+						Report</th>
+					<th align=center width=60  height=20>
+						Update</th>
+				</tr>
+		
+			<tr class="bgAbuE8">
+				<td align="center" height="20">Z0081</td>
+				<td align="center" height="20">Algoritma dan Pemrograman</td>
+				<td align="center" height="20">BK01</td>
+				<td align="center" height="20"><a id="ctl00_cpContent_repeaterPracticalScore_ctl01_anchorUTP" class="normaltext">N/A</a></td>
+				<td align="center" height="20"><a id="ctl00_cpContent_repeaterPracticalScore_ctl01_anchorUAP" class="normaltext">N/A</a></td>
+				<td align="center" height="20"><a id="ctl00_cpContent_repeaterPracticalScore_ctl01_anchorProyek" class="normaltext">N/A</a></td>
+				<td align="center" height="20"><a id="ctl00_cpContent_repeaterPracticalScore_ctl01_anchorLaporan" class="normaltext">90</a></td>
+				<td align="center" height="20"><a id="ctl00_cpContent_repeaterPracticalScore_ctl01_anchorUpdate" class="normaltext">24 Feb 15</a></td>
+			</tr> <!-- daftar jadwal --> 
+	
+		</table>
+		</td>
+		</tr>
+	
+	
+</tr>
+</table>
+												
+												<br/>
+											
+											</td>
+										</tr>
+										
+									</table>
+									</div>
+									
+									
+									
+									
+ 		</div> 
+
+    	          
+   	 	    </div> <!--itemcontentservice closing-->
+   	 	    <!--section right-->        
+            <div class="contentNavigationRight">
+                
+    <input type="submit" name="ctl00$cpRight$SearchServiceMenu1$btnSearch" value="Search Service" id="ctl00_cpRight_SearchServiceMenu1_btnSearch" class="btnBlueNav" />
+    
+<script language="javascript" type="text/javascript">
+// <!CDATA[
+
+function nav_button_onclick() {
+
+}
+
+// ]]>
+</script>
+        <div class="right">
+        <input type="button" value="Shortcut"  id="nav_button" title="Click it to Show Shortcut Navigation" class="btnBlueNav" onclick="return nav_button_onclick()" /></div>
+		<br />       
+		<div id="outRight"> <!--first in hide, then show following shortcutbutton clicked-->
+      
+	  <div id="navigationRight">
+   
+ 	<ul id="nav">
+ 	
+     
+    
+   
+        <li class="NoBg"><a href="http://apps.binusmaya.binus.ac.id/Services/studentMenu/FAQ.aspx?smid=oieN7qgmkB3Q6UIsFVzSHw%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutParentS_ctl01_linkShortcutParentS">FAQ</a></li>
+   
+        <li class="NoBg"><a href="http://apps.binusmaya.binus.ac.id/Services/studentMenu/InformationService.aspx?smid=RA2AQbiLPPPxhwMca%2baz1Q%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutParentS_ctl02_linkShortcutParentS">Contact Us</a></li>
+   
+        <li class="NoBg"><a href="http://apps.binusmaya.binus.ac.id/Services/studentMenu/FormulirPendaftaranUlang.aspx?smid=iL4cpspkt1rSHEl5wQeU2A%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutParentS_ctl03_linkShortcutParentS">Data Confirmation – FPU</a></li>
+   
+        
+   
+   
+   
+    
+   
+    <li><a href="#">Lecture</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/SubstituteCourseSchedule.aspx?smid=jpZ8E06srtCdGWyqLd%2bR%2fQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl01_linkSubMenuStudent">Substitute Course Schedule</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/Absence.aspx?smid=Z0lh6YoFUOgpIpaVFK7jUw%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl02_linkSubMenuStudent">Absence</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/LecturerSchedule.aspx?smid=h7F0I3v8O8YdIPbjJkGekg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl03_linkSubMenuStudent">Lecturer Schedule</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl04_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/CetakKMK.aspx?smid=T1k%2bGUS8CpRrW5e%2f0feK%2fw%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl04_linkSubMenuStudent">Download KMK</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl05_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/studentMenu/SP3AWarning.aspx?smid=f1V1bE5E51tLqcnKH6oOHg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl05_linkSubMenuStudent">SPPPA</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl06_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/newsevent/BinusFestWeek.aspx" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl06_linkSubMenuStudent" target="_blank">Binus Festivals of Innovation and Enterprise Week</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl07_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/AbsenceFEP.aspx?smid=l6yh95a0cleCh5N8Et%2fDJg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl01_rptSubMenuStudent_ctl07_linkSubMenuStudent">Absence FEP</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Exam</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl02_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/PracticalExamSchedule.aspx?smid=vDC3sNu79EN2BYBqLfag3g%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl02_rptSubMenuStudent_ctl01_linkSubMenuStudent">Practicum Exam Schedule</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl02_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/TheoriticalExamSchedule.aspx?smid=sAgSlj9v7RvwdB%2bXGtXZew%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl02_rptSubMenuStudent_ctl02_linkSubMenuStudent">Theory Exam Schedule</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl02_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/SubstituteExamSchedule.aspx?smid=MV%2bCdzDHQFgDyDqXDtbt9A%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl02_rptSubMenuStudent_ctl03_linkSubMenuStudent">Substitute Exam Schedule</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Grades</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ExamScore.aspx?smid=5VJMgpOOriS0YHDpvyDjmQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl01_linkSubMenuStudent">Exam Score</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/SemesterlyProgressReport.aspx?smid=q34LlyudbC4TFokuZOa1gw%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl02_linkSubMenuStudent">Laporan Hasil Studi Semester (LHSS)</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/CumulativeScoreSheet.aspx?smid=EnnxBCN5KioKKzuHzP6hTQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl03_linkSubMenuStudent">Cumulative Score Sheet</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl04_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/IPSIPKHistory.aspx?smid=7ivaI%2bgUvsXe%2bAqvAW8L6Q%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl04_linkSubMenuStudent">IPS/IPK History</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl05_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/BEUPTResult.aspx?smid=nqx89H2fi2imFmeMeKGgKg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl05_linkSubMenuStudent">BUEPT Result</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl06_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ExamScoreProtest.aspx?smid=tM5bVFneXyHK85M5JEzgpQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl06_linkSubMenuStudent">Exam Score Protest (Theory)</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl07_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/EES-ECScore.aspx?smid=XAWSLTR7z9lP31Af1yWDsA%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl07_linkSubMenuStudent">EES-EC Score</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl08_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ScoreProtestPracticum.aspx?smid=Xe%2byuym75ib8DXn4HaXuTQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl03_rptSubMenuStudent_ctl08_linkSubMenuStudent">Practicum Exam Score Protest</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Course Registration</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/CoursePackage.aspx?smid=BQRhlOyxrmWxdiozLWPx0A%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl01_linkSubMenuStudent">Package Result / KRS</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/PackageResult.aspx?smid=6JO7FceaJY6FgzRRawr60w%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl02_linkSubMenuStudent">Course Packet / KRSS</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://binusmaya.binus.ac.id/contentpath/docs/krs.zip" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl03_linkSubMenuStudent" target="_blank">KRS Manager</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl04_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/NewCourseDistribution.aspx?smid=jYjXX%2bxuia7iFK6iXmZHbQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl04_linkSubMenuStudent">Course Distribution List</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl05_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/FailedCourseList.aspx?smid=ZYnILTeWyVHZvEdIX3o39w%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl05_linkSubMenuStudent">Failed Course List</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl06_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/CourseOfInterest.aspx?smid=8aU8i%2fJ1rjzYBW3v1tY4Gw%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl06_linkSubMenuStudent">Course Of Interest Result</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl07_Panel1">
+	
+            <li><a href="http://binusmaya.binus.ac.id/Docs/RB;@I4FP0E/Kalender Registrasi 2015-2016 Genap ver 4.pdf" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl07_linkSubMenuStudent" target="_blank">Registration Calendar [PDF]</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl08_Panel1">
+	
+            <li><a href="http://registrasi.binus.ac.id/krss/" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl04_rptSubMenuStudent_ctl08_linkSubMenuStudent" target="_blank">Entry KRSS</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Thesis/ Field Study/ Internship</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ThesisGroup.aspx?smid=bE6uXKavoNNh4T%2fM1PCadQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl01_linkSubMenuStudent">Thesis Group</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/Thesis_ExamSchedule.aspx?smid=nDGsX1HXZPFtjNE3C2Fojg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl02_linkSubMenuStudent">Thesis Exam Schedule</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ThesisStatus.aspx?smid=biJ%2bA%2f2zQsAWcAm%2b7sNdqg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl03_linkSubMenuStudent">Thesis Status</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl04_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/InternshipExamSchedule.aspx?smid=p%2f5PgELAkOCI8nO1S1rtUg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl04_linkSubMenuStudent">Internship / Seminar Exam Schedule</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl05_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/FIIPrint.aspx?smid=CTJwbB84QtwTdMdzG%2bvBdg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl05_linkSubMenuStudent">Diploma Filling Form</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl06_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/QuestionnaireThesisWelcome.aspx?smid=0qMS5d1uiE%2frz0OtC9dV9g%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl06_linkSubMenuStudent">Graduate Candidate Survey</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl07_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ThesisFileUpload.aspx?smid=cwadSKW53DzSDgjHiv16Ig%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl07_linkSubMenuStudent">Upload Thesis File</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl08_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/UploadFotoWisuda.aspx?smid=TDHJQ4qxCg%2b2qrBoB97ZhA%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl05_rptSubMenuStudent_ctl08_linkSubMenuStudent">Upload Graduation Photo</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Finance</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl06_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/PaymentStatus.aspx?smid=7QVWOnGD7TYToR322rv2Lg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl06_rptSubMenuStudent_ctl01_linkSubMenuStudent">Payment Status</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl06_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/AutodebetStatus.aspx?smid=FSgg7TfKFPAFVQt3rb7hrA%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl06_rptSubMenuStudent_ctl02_linkSubMenuStudent">Auto debit Status</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl06_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/StudentFinanceStatus.aspx?smid=%2favfj8RTMddctsClvnMqcQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl06_rptSubMenuStudent_ctl03_linkSubMenuStudent">Student Finance Status</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Services/Letter Request</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/ReferenceLetter.aspx?smid=tfzwoCiI%2f21B7DzpCRgaBg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl01_linkSubMenuStudent">Explanation Letter Request</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/SurveyLetterRequest.aspx?smid=uX99O%2fu7ohw%2fILonI%2f9DBA%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl02_linkSubMenuStudent">Survey Letter Request</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/FinancialEstimationLetterRequest.aspx?smid=%2fbhf0GIsPB8l83iVCBmdjg%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl03_linkSubMenuStudent">Financial Estimation Letter Request</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl04_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/PaymentInformationStatusLetterRequest.aspx?smid=QDHpxwRLM0TFaz1FcGhLbw%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl07_rptSubMenuStudent_ctl04_linkSubMenuStudent">Payment Information Status Letter Request</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Graduation</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/GraduationStatus.aspx?smid=2RGMWiPb1BwFACOlXZPySA%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl01_linkSubMenuStudent">Graduation Status</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl02_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/GraduationQuestionnnaire.aspx?smid=boU3y2FXGHc6Xy35d2SAzQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl02_linkSubMenuStudent">Graduation Questionnaire</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl03_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/GraduationInvitationHistoryRegistration.aspx?smid=3CkybayzorG7Gw%2biWy%2fj%2bQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl03_linkSubMenuStudent">Graduation Additional Invitation Registration</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl04_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/StudentMenu/GraduationInvitationHistory.aspx?smid=03jsLVAYq8utfsY%2fuFnrig%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl04_linkSubMenuStudent">Graduation Add. Invitation Registration History</a></li>
+            
+</div>
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl05_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/studentMenu/NoKursi.aspx?smid=gO%2bGcXE%2f%2f%2fL0J2qH8NmpCQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl08_rptSubMenuStudent_ctl05_linkSubMenuStudent">Graduation Schedule</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Buddy Program</a>
+    <ul>
+        
+    </ul>
+    </li>
+   
+    <li><a href="#">Academic Advisory</a>
+    <ul>
+        
+        
+        
+            <div id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl10_rptSubMenuStudent_ctl01_Panel1">
+	
+            <li><a href="http://apps.binusmaya.binus.ac.id/Services/studentMenu/AcademicAdvisoryActivityStudent.aspx?smid=6yk%2fNqCtRZNsLoXRm8lBrQ%3d%3d" id="ctl00_cpRight_grpBox1_rptShortcutStudent_ctl10_rptSubMenuStudent_ctl01_linkSubMenuStudent">Academic Advisory Activity</a></li>
+            
+</div>
+        
+        
+        
+    </ul>
+    </li>
+   
+        
+   
+    </ul>
+  	</div> <!--navigationRight closing-->
+    </div> <!--outRight closing--> 
+    
+ 
+    <br />
+    
+    	
+
+            </div>   <!--contentNavigationRight closing-->
+        </div> <!--contentForService closing-->
+   	 	</div> <!--itemContent closing-->
+        </div> <!--groupItemFixed closing-->
+    </div> <!--groupWrapper closing-->
+         
+   <script type="text/javascript">
+        
+<!--       //--><![CDATA[//><!--
+       startList = function() {
+           if (document.getElementById) {
+               var baseId = document.getElementsByTagName('body')[0].id; // these 3 lines set currently selected item to on
+               var addclass = baseId;
+               document.getElementById(addclass).className = "on";
+               navRoot = document.getElementById("nav");
+               for (i = 0; i < navRoot.childNodes.length; i++) {
+                   node = navRoot.childNodes[i];
+                   if (node.nodeName == "LI") {
+                       node.onclick = function() {
+                           this.className = (this.className == "on") ? "off" : "on";
+                           setIframeHeight();
+                       }
+                   }
+               }
+           }
+       }
+       
+       //--><!]]>
+       
+       $(document).ready(function() {
+           $("#outRight").hide();
+           $("#nav_button").click(function() {
+               $("#outRight").animate({ width: "toggle",
+                   height: "toggle"
+               }, 700);
+               setIframeHeight();
+           });           
+       });
+
+
+       function setIframeHeight(pipeLink, pipeMinHeight) {
+           var pipe = document.getElementById('pipe');
+           //var height = document.getElementById("divDataContent").offsetHeight + 20;
+           var height = getDocHeight();
+
+           if (pipeMinHeight)
+               height = (height <= pipeMinHeight ? pipeMinHeight : height); 
+
+           if (pipeLink === undefined)
+               pipeLink = "http://binusmaya.binus.ac.id/Pipe.aspx";
+
+           pipe.src = pipeLink + '?height=' + height + '&url=' + location.href;
+
+
+       }
+
+       function getDocHeight() {
+           var D = document;
+           return Math.max(
+                Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+                Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+                Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+            );
+       }
+
+       window.onload = function(e) {
+           setIframeHeight();
+       };
+       
+</script>
+
+<iframe id="pipe" src='' style="display:none;" ></iframe>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+setTimeout('setIframeHeight(document.getElementById(\'all\').offsetHeight)', 250);Sys.Application.initialize();
+//]]>
+</script>
+</form>
+
+
+
+
+</body>
+</html>
