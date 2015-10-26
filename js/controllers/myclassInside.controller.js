@@ -85,7 +85,7 @@ app.controller('MyClassDetailController',
               return BinusMaya.api('/', 'get');
             }, function() {
               // Fail to re-login
-              reject("can't re-auth your account");
+              return $q.reject("can't re-auth your account");
             })
             // Load These Page
             .then(function(d) {
@@ -93,12 +93,12 @@ app.controller('MyClassDetailController',
                 $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
               );
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(c) {
               return BinusMaya.api(_bimay_api_url + '/LMS/' + url, 'get', {}, true);
             }, function() {
-              reject("can't access to my class");
+              return $q.reject("can't access to my class");
             })
             .then(function(d) {
               resolve(returnResponse(d.result));
@@ -140,11 +140,59 @@ app.controller('MyClassDetailController',
       $scope.$broadcast('scroll.refreshComplete');
     };
 
+    $scope.downloadCourse = function(index, links) {
+      $scope.linksSet[index] = {isLoading: true};
+      downloadMaterial(links)
+      .then(function(d) {
+        window.open(d, '_system');
+        $scope.linksSet[index] = {isLoading: false};  
+      }, function() {
+        $scope.linksSet[index] = {isLoading: false};
+      });
+    };
+
     $scope.downloadAssigment = function(index, links) {
       $scope.linksSetAssigment[index] = {isLoading: true};
-      $timeout(function() {
+      downloadMaterial(links)
+      .then(function(d) {
+        window.open(d, '_system');
         $scope.linksSetAssigment[index] = {isLoading: false};
-      }, 10000);
+      }, function() {
+        $scope.linksSetAssigment[index] = {isLoading: false};
+      });
+    };
+
+
+    var downloadMaterial = function(links)
+    {
+      //console.log($scope.classData[dataset].url, links);
+      return $q(function(resolve, reject) {
+        BinusMaya.checkLogin()
+          .then(function() {
+            return BinusMaya.api('/', 'get');
+          }, function() {
+            // Fail to re-login
+            return $q.reject("can't re-auth your account");
+          })
+          // Load These Page
+          .then(function(d) {
+            return BinusMaya.frame(
+              $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
+            );
+          }, function() {
+            return $q.reject("can't access to main frame");
+          })
+          .then(function(c) {
+            return BinusMaya.download($scope.classData[dataset].url, links);
+          }, function() {
+            return $q.reject("can't access to my class");
+          })
+          .then(function(d) {
+            resolve(d.header.Location);
+          }, function(e) {
+            reject(e);
+          });
+      });
     };
 
     $scope.refresh = function() {

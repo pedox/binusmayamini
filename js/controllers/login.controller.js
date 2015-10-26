@@ -31,7 +31,9 @@ function($scope, $ionicPopup, $timeout, $ionicHistory, $ionicNavBarDelegate, $ro
           data.txtPassword = $scope.password;
           data.btnLogin = "Log In ";
           return BinusMaya.api('/', 'post', data);
-        }, handleError)
+        }, function(e) {
+          handleError(e);
+        })
         .then(function(d) {
           var name = $(d.result).find("#content #topbar .right strong");
           // When Success

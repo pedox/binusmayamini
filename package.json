@@ -38,6 +38,9 @@
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
+    "cordova-plugin-inappbrowser",
+    "https://github.com/pedox/crodova-httpclient",
+    "cordova-plugin-network-information",
     "com.ionic.keyboard"
   ],
   "cordovaPlatforms": [

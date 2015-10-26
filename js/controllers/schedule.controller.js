@@ -97,7 +97,7 @@ app.controller('ScheduleController',
               return BinusMaya.api('/', 'get');
             }, function() {
               // Fail to re-login
-              reject("can't re-auth your account");
+              return $q.reject("can't re-auth your account");
             })
             // Load These Page
             .then(function(d) {
@@ -105,7 +105,7 @@ app.controller('ScheduleController',
                 $(d.result).find(".itemContent ul li:eq(0) > a").attr("href")
               );
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(c) {
               var data = {},
@@ -116,12 +116,12 @@ app.controller('ScheduleController',
               data.__EVENTTARGET = 'ctl00$ContentPlaceHolder1$btnSchedule';
               return BinusMaya.api(_bimay_api_url + '/LMS/MyClass.aspx', 'post', data, true);
             }, function() {
-              reject("can't access frame");
+              return $q.reject("can't access to schedule page");
             })
             .then(function(d) {
               resolve(returnResponse(d.result));
-            }, function() {
-              reject("can't access schedule page");
+            }, function(e) {
+              reject(e);
             });
         }
       });
@@ -135,7 +135,9 @@ app.controller('ScheduleController',
         $rootScope.getLastUpdate();
         $scope.isSchedule = true;
         $scope.schedule = data.jadwal;
-      }, errHandle);
+      }, function(e) {
+        errHandle(e);
+      });
 
       var errHandle = function(msg) {
         $ionicLoading.hide();

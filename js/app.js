@@ -55,18 +55,13 @@ var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory']
 
   var getProfileImage = function() {
     /** peform avatar **/
-    console.log("perform");
     if(localStorage.profilePicture) {
       $rootScope.profilePicture = localStorage.profilePicture;
-      console.log("perform");
     } else {
       if (typeof httpclient === "undefined") {
-        console.log("make request to another !");  
       } else {
-        console.log("make request !");
         BinusMaya.profilePicture()
           .then(function(done) {
-            console.log("Apply !");
             $timeout(function(){
               localStorage.profilePicture = done;
               $rootScope.profilePicture = done;

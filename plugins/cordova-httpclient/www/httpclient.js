@@ -29,6 +29,7 @@ var asynchttpclient = {
     options = typeof options === "undefined" ? options = {} : options;
     if(!options.headers) {
       options.headers = {};
+      
     }
     exec(success, error, this.pluginName, "post", [url, params, options]);
   },

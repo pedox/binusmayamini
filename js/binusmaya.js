@@ -42,27 +42,67 @@ angular.module('BinusMayaFactory', [])
         }
       });
     },
-    api: function(endpoint, method, params, noEndpoint) {
+    api: function(endpoint, method, params, noEndpoint, noRedirect) {
       var _t = this;
+      /*jshint -W030 */
       typeof noEndpoint !== "undefined" ? false : true;
-      if (localStorage.cookie === undefined) {
+      var options = {
+        headers: _t.headers(),
+      };
+      if(typeof noRedirect !== "undefined") {
+        options.noRedirect = true;
+      }
+      if(navigator.connection.type == "none") {
+        return $q(function(resolve, reject) {
+          reject("No internet connection");
+        });
+      } else if (localStorage.cookie === undefined) {
         return _t._getCookie()
           .then(function() {
             return _t.api(endpoint, method, params);
-          });
+          }); 
       } else {
         return $q(function(resolve, reject) {
           if (method === "get") {
-            httpclient.get((noEndpoint ? endpoint : _t._bimay_url + endpoint), resolve, reject, {
-              headers: _t.headers()
-            });
+            httpclient.get((noEndpoint ? endpoint : _t._bimay_url + endpoint), function(d) {
+              resolve(d);
+            }, function(e) {
+              reject(e);
+            }, options);
           } else {
-            httpclient.post((noEndpoint ? endpoint : _t._bimay_url + endpoint), params, resolve, reject, {
-              headers: _t.headers()
-            });
+            httpclient.post((noEndpoint ? endpoint : _t._bimay_url + endpoint), params, function(d) {
+              resolve(d);
+            }, function(e) {
+              reject(e);
+            }, options);
           }
         });
       }
+    },
+
+    download: function(url, formName) {
+      var _t = this;
+      return $q(function(resolve, reject) {
+        return _t.api(_t._bimay_api_url +'/LMS/'+ url, 'get', {}, true)
+        .then(function(d) {
+          var data = {};
+          $($(d.result).serializeArray()).each(function(i, e) {
+            data[e.name] = e.value;
+          });
+          data[formName+'.x'] = 1;
+          data[formName+'.y'] = 1;
+          return _t.api(_t._bimay_api_url +'/LMS/'+ url, 'post', data, true, true);
+        }, reject)
+        .then(function(d) {
+          reject(d);
+        }, function(d) {
+          if(d.code == 302) {
+            resolve(d);
+          } else {
+            reject(d);
+          }
+        });
+      });
     },
 
     frame: function(url) {

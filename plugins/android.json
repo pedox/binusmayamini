@@ -11,6 +11,14 @@
                         {
                             "xml": "<feature name=\"HttpClient\"><param name=\"android-package\" value=\"com.pedox.plugin.HttpClient.HttpClient\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -22,6 +30,12 @@
                             "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
                             "count": 1
                         }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -29,6 +43,12 @@
     },
     "installed_plugins": {
         "cordova-httpclient": {
+            "PACKAGE_NAME": "com.ionicframework.binusmayamini364957"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.binusmayamini364957"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.ionicframework.binusmayamini364957"
         }
     },

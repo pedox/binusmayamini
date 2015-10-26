@@ -92,7 +92,6 @@ public class HttpClient extends CordovaPlugin {
         {
             JSONObject data = args.getJSONObject(1);
             RequestParams params = new RequestParams();
-
             for (Iterator<String> i = data.keys(); i.hasNext();) {
                 String key = i.next();
                 try {
@@ -120,10 +119,9 @@ public class HttpClient extends CordovaPlugin {
      * @param url
      * @param callbackContext
      */
-    private void getRequest(final Activity context, String url, JSONObject headers, final CallbackContext callbackContext) throws JSONException {
+    private void getRequest(final Activity context, String url, JSONObject options, final CallbackContext callbackContext) throws JSONException {
         final AsyncHttpClient client = new AsyncHttpClient();
-        this.setArgument(client, headers);
-
+        this.setArgument(client, options);
         client.get(url, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
@@ -145,9 +143,9 @@ public class HttpClient extends CordovaPlugin {
      * @param params
      * @param callbackContext
      */
-    public void postRequest(final Activity context, String url, JSONObject headers, RequestParams params, final CallbackContext callbackContext) throws JSONException {
+    public void postRequest(final Activity context, String url, JSONObject options, RequestParams params, final CallbackContext callbackContext) throws JSONException {
         final AsyncHttpClient client = new AsyncHttpClient();
-        this.setArgument(client, headers);
+        this.setArgument(client, options);
         client.post(url, params, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
@@ -161,10 +159,9 @@ public class HttpClient extends CordovaPlugin {
         });
     }
 
-    public void getImage(final Activity context, String url, JSONObject headers, final CallbackContext callbackContext) throws JSONException {
+    public void getImage(final Activity context, String url, JSONObject options, final CallbackContext callbackContext) throws JSONException {
         final AsyncHttpClient client = new AsyncHttpClient();
-        this.setArgument(client, headers);
-
+        this.setArgument(client, options);
         client.get(url, new FileAsyncHttpResponseHandler(context) {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
@@ -234,19 +231,25 @@ public class HttpClient extends CordovaPlugin {
      * @param client
      * @return
      */
-    private AsyncHttpClient setArgument(AsyncHttpClient client, JSONObject headers) throws JSONException {
+    private AsyncHttpClient setArgument(AsyncHttpClient client, JSONObject options) throws JSONException {
         client.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2243.0 Safari/537.36");
-
-        JSONObject _headers = headers.getJSONObject("headers");
-
-        for (Iterator<String> i = _headers.keys(); i.hasNext();) {
-            String key = i.next();
-            try {
-                Object value = _headers.get(key);
-                client.addHeader(key, (String) value);
-            } catch (JSONException e) {
-                // Something went wrong!
+        try {
+            if(options.has("noRedirect")) {
+                Log.v("[NOREDIRECT]","Active");
+                client.setEnableRedirects(false);
             }
+            JSONObject _headers = options.getJSONObject("headers");
+            for (Iterator<String> i = _headers.keys(); i.hasNext(); ) {
+                String key = i.next();
+                try {
+                    Object value = _headers.get(key);
+                    client.addHeader(key, (String) value);
+                } catch (JSONException e) {
+                    // Something went wrong!
+                }
+            }
+        } catch(JSONException e) {
+
         }
         return client;
     }

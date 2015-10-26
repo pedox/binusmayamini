@@ -62,7 +62,7 @@ app.controller('ExamScheduleController',
               return BinusMaya.api('/', 'get');
             }, function() {
               // Fail to re-login
-              reject("can't re-auth your account");
+              return $q.reject("can't re-auth your account");
             })
           	// Load These Page
           	.then(function(d) {
@@ -70,38 +70,38 @@ app.controller('ExamScheduleController',
 	              $(d.result).find(".itemContent ul li:eq(3) > a").attr("href")
 	            );
 	          }, function() {
-	            reject("can't access to main frame");
+	            return $q.reject("can't access to main frame");
 	          })
 	          .then(function(d) {
               return BinusMaya.api(
                 $(d.result.result).find("#ctl00_cpContent_rptMainMenuStudent_ctl02_linkMenuStudent").attr("href"), 'get', {}, true
               );
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(d) {
             	schedule_url = d.result;
             	return BinusMaya.api($(schedule_url).find(".itemContentService li:eq(0) a").attr("href"), 'get', {}, true);
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(d) {
             	dataSchedule.push(d.result);
             	return BinusMaya.api($(schedule_url).find(".itemContentService li:eq(1) a").attr("href"), 'get', {}, true);
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(d) {
             	dataSchedule.push(d.result);
             	return BinusMaya.api($(schedule_url).find(".itemContentService li:eq(2) a").attr("href"), 'get', {}, true);
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(d) {
             	dataSchedule.push(d.result);
             	resolve(returnResponse(dataSchedule));
-            }, function() {
-              reject("can't access to main frame");
+            }, function(e) {
+              reject(e);
             });
         }
       });

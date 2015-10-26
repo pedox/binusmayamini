@@ -70,7 +70,7 @@ app.controller('FinanceController',
               return BinusMaya.api('/', 'get');
             }, function() {
               // Fail to re-login
-              reject("can't re-auth your account");
+              return $q.reject("can't re-auth your account");
             })
           // Load These Page
           .then(function(d) {
@@ -78,21 +78,21 @@ app.controller('FinanceController',
               $(d.result).find(".itemContent ul li:eq(3) > a").attr("href")
             );
           }, function() {
-            reject("can't access to main frame");
+            return $q.reject("can't access to main frame");
           })
             .then(function(d) {
               return BinusMaya.api(
                 $(d.result.result).find("#ctl00_cpContent_rptMainMenuStudent_ctl06_linkMenuStudent").attr("href"), 'get', {}, true
               );
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(d) {
               return BinusMaya.api(
                 $(d.result).find("#ctl00_cpContent_rptSubMenu_ctl03_linkSubMenu").attr("href"), 'get', {}, true
               );
             }, function() {
-              reject("can't access to main frame");
+              return $q.reject("can't access to main frame");
             })
             .then(function(c) {
               resolve(returnResponse(c.result));
