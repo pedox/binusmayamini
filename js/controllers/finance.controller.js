@@ -103,11 +103,6 @@ app.controller('FinanceController',
       });
     };
 
-    $scope.financeList = false;
-    if (typeof localStorage.finance !== "undefined") {
-      $scope.financeList = JSON.parse(localStorage.finance);
-    }
-
     var errHandle = function(msg) {
       $ionicPopup.alert({
         title: 'Oops !',
@@ -116,6 +111,12 @@ app.controller('FinanceController',
       $scope.$broadcast('scroll.refreshComplete');
     };
 
-    BinusMaya.promptPassword('services', $scope);
+    BinusMaya.promptPassword('services', $scope)
+    .then(function() {
+      $scope.financeList = false;
+      if (typeof localStorage.finance !== "undefined") {
+        $scope.financeList = JSON.parse(localStorage.finance);
+      }
+    });
   }
 );

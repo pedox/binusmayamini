@@ -1,6 +1,6 @@
 app.controller('AbsenceController',
   function($scope, BinusMaya, $ionicNavBarDelegate, $state, $http, $location,
-    $stateParams, $timeout, $rootScope, $ionicPlatform, $q, $ionicPopup) {
+    $stateParams, $timeout, $rootScope, $ionicPlatform, $q, $ionicPopup, $ionicLoading) {
 
     $scope.doRefresh = function() {
       refreshAbsence()
@@ -11,10 +11,12 @@ app.controller('AbsenceController',
               $scope.absence = done;
             }
             $scope.$broadcast('scroll.refreshComplete');
+            $ionicLoading.hide();
           });
         }, function(err) {
           errHandle(err);
           $scope.$broadcast('scroll.refreshComplete');
+          $ionicLoading.hide();
         });
     };
 
@@ -103,10 +105,16 @@ app.controller('AbsenceController',
       });
     };
 
-    $scope.absence = false;
-    if (typeof localStorage.absence !== "undefined") {
-      $scope.absence = JSON.parse(localStorage.absence);
-    }
+    BinusMaya.promptPassword('services', $scope)
+    .then(function() {
+      $scope.absence = false;
+      if (typeof localStorage.absence !== "undefined") {
+        $scope.absence = JSON.parse(localStorage.absence);
+      } else {
+        $ionicLoading.show({templateUrl: 'views/module/loading.html',noBackdrop: true});
+        $scope.doRefresh();
+      }
+    });
 
     var errHandle = function(msg) {
       $ionicPopup.alert({

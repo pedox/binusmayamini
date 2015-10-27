@@ -6,45 +6,25 @@
           on-refresh="doRefresh()">
       </ion-refresher>
         <div class="protect" ng-show="isAllow">
-          <div class="list exam-score" ng-show="examScore">
-            <div class="item item-divider">Theory</div>
-            <div class="item" ng-repeat="data in examScore">
-              <h2>{{data.course}}</h2>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>SKS</td>
-                    <td>{{data.sks}}</td>
-                  </tr>
-                  <tr>
-                    <td>Tugas Mahasiswa</td>
-                    <td>{{data.tm}}</td>
-                  </tr>
-                  <tr>
-                    <td>Mid Smester</td>
-                    <td>{{data.mid}}</td>
-                  </tr>
-                  <tr>
-                    <td>Practicum</td>
-                    <td>{{data.prac}}</td>
-                  </tr>
-                  <tr>
-                    <td>Final</td>
-                    <td>{{data.final}}</td>
-                  </tr>
-                  <tr>
-                    <td>Result</td>
-                    <td>{{data.result}}</td>
-                  </tr>
-                </tbody>
-              </table>
+          <div ng-show="examScore">
+            <div class="list exam-score" ng-show="examScore.length > 0">
+              <div class="card" ng-repeat="d in examScore">
+                <div class="item">
+                  <div class="term">{{d.term}}</div>
+                  <h2>{{d.name}}</h2>
+                  <p class="summary">{{d.year}} - Semester {{d.smester}}</p>
+                  <div class="divider"></div>
+                  <div class="row no-margin" ng-repeat="e in d.data">
+                    <div class="col" ng-repeat="f in e"><span>{{f.value}}</span><label>{{f.name}}</label></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="item item-divider">Practicum</div>
-          </div>
-          <div class="alert-not-found caution" ng-hide="examScore">
-              <i class="icon ion-stats-bars"></i>
-              <h1>Exam Score not found</h1>
-              <p>Pull Down to refresh ...</p>
+            <div class="alert-not-found caution" ng-hide="examScore.length > 0">
+                <i class="icon ion-stats-bars"></i>
+                <h1>Exam Score not found</h1>
+                <p>Pull Down to refresh ...</p>
+            </div>
           </div>
         </div>
     </ion-content>

@@ -5,7 +5,7 @@
           spinner="android"
           on-refresh="doRefresh()">
       </ion-refresher>
-        <!--<div class="protect" ng-show="isAllow">-->
+        <div class="protect" ng-show="isAllow">
           <div class="list absence" ng-show="absence">
             <div class="card" ng-repeat="d in absence">
               <div class="item">
@@ -27,6 +27,6 @@
               <h1>Absence Data not found</h1>
               <p>Pull Down to refresh ...</p>
           </div>
-        <!--</div>-->
+        </div>
     </ion-content>
 </ion-view>

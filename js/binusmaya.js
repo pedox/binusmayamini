@@ -159,33 +159,37 @@ angular.module('BinusMayaFactory', [])
     },
     promptPassword: function(location, scope) {
       scope.promptPass = {};
-      var myPopup = $ionicPopup.show({
-        template: '<p ng-show="promptPass.error">Incorrect Password</p><input type="password" class="promptPass-form" ng-model="promptPass.password">',
-        title: 'Enter Binusmaya Password',
-        subTitle: '',
-        scope: scope,
-        buttons: [{
-          text: 'Cancel',
-          onTap: function(e) {
-            window.location.hash = '#/' + location;
-            myPopup.close();
-          }
-        }, {
-          text: '<b>Enter</b>',
-          type: 'button-positive',
-          onTap: function(e) {
-            var mypass = JSON.parse(localStorage.loginId).password;
-            if (mypass == scope.promptPass.password) {
-              scope.promptPass = {};
-              scope.isAllow = true;
-              return true;
-            } else {
-              scope.promptPass.error = true;
-              scope.promptPass.password = "";
-              e.preventDefault();
+      return $q(function(resolve, reject) {
+        var myPopup = $ionicPopup.show({
+          template: '<p ng-show="promptPass.error">Incorrect Password</p><input type="password" class="promptPass-form" ng-model="promptPass.password">',
+          title: 'Enter Binusmaya Password',
+          subTitle: '',
+          scope: scope,
+          buttons: [{
+            text: 'Cancel',
+            onTap: function(e) {
+              window.location.hash = '#/' + location;
+              myPopup.close();
+              reject('back');
             }
-          }
-        }]
+          }, {
+            text: '<b>Enter</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              var mypass = JSON.parse(localStorage.loginId).password;
+              if (mypass == scope.promptPass.password) {
+                scope.promptPass = {};
+                scope.isAllow = true;
+                resolve(true);
+                return true;
+              } else {
+                scope.promptPass.error = true;
+                scope.promptPass.password = "";
+                e.preventDefault();
+              }
+            }
+          }]
+        });
       });
     },
     _requestError: function(data) {
