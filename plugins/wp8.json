@@ -23,6 +23,10 @@
                         {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"wp-package\" value=\"NetworkStatus\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"wp-package\" value=\"StatusBar\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -63,6 +67,9 @@
             "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
         },
         "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
+        },
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "{f6b805d0-70cd-11e5-98da-71f47a620c89}"
         }
     },

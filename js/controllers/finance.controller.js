@@ -121,7 +121,6 @@ app.controller('FinanceController',
     .then(function() {
       if (localStorage.finance) {
         $scope.financeList = JSON.parse(localStorage.finance);
-        console.log($scope.financeList);
       } else {
         $ionicLoading.show({templateUrl: 'views/module/loading.html',noBackdrop: true});
         $scope.doRefresh();

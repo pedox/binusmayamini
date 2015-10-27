@@ -77,7 +77,40 @@ app.controller('ExamScoreController',
               resolve(returnResponse(d.data));
             }, reject);
         } else {
-        	
+        	BinusMaya.checkLogin()
+            .then(function() {
+              return BinusMaya.api('/', 'get');
+            }, function() {
+              // Fail to re-login
+              return $q.reject("can't re-auth your account");
+            })
+            // Load These Page
+            .then(function(d) {
+              return BinusMaya.frame(
+                $(d.result).find(".itemContent ul li:eq(3) > a").attr("href")
+              );
+            }, function() {
+              return $q.reject("can't access to main frame");
+            })
+            .then(function(d) {
+              return BinusMaya.api(
+                $(d.result.result).find("#ctl00_cpContent_rptMainMenuStudent_ctl03_linkMenuStudent").attr("href"), 'get', {}, true
+              );
+            }, function() {
+              return $q.reject("can't access to main frame");
+            })
+            .then(function(d) {
+              return BinusMaya.api(
+                $(d.result).find("#ctl00_cpContent_rptSubMenu_ctl01_linkSubMenu").attr("href"), 'get', {}, true
+              );
+            }, function() {
+              return $q.reject("can't access to main frame");
+            })
+            .then(function(c) {
+              resolve(returnResponse(c.result));
+            }, function() {
+              reject("can't access to main frame");
+            });
         }
       });
   	};
@@ -86,17 +119,18 @@ app.controller('ExamScoreController',
       refreshExamScore()
         .then(function(done) {
           $scope.$applyAsync(function() {
-            if (typeof localStorage.examScore !== "undefined" || done.length > 0) {
+            if (!localStorage.examScore || done.length > 0) {
               localStorage.examScore = JSON.stringify(done);
               $scope.examScore = done;
             }
-            $scope.$broadcast('scroll.refreshComplete');
             $ionicLoading.hide();
+            $scope.$broadcast('scroll.refreshComplete');
+            
           });
         }, function(err) {
           errHandle(err);
-          $scope.$broadcast('scroll.refreshComplete');
           $ionicLoading.hide();
+          $scope.$broadcast('scroll.refreshComplete');
         });
     };
 

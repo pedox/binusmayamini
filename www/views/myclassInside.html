@@ -15,7 +15,7 @@
             <div class="button-bar">
               <a ng-click="switchTab(0)" class="button button-clear" ng-class="{'active':showpage == 0}">Info</a>
               <a ng-click="switchTab(1)" class="button button-clear" ng-class="{'active':showpage == 1}">Topics</a>
-              <a ng-click="switchTab(2)" class="button button-clear" ng-class="{'active':showpage == 2}">Assigment</a>
+              <a ng-click="switchTab(2)" class="button button-clear" ng-class="{'active':showpage == 2}">Assignment</a>
             </div>
             <div class="info-page" ng-show="showpage == 0">
               <h4>Course Description</h4>
@@ -45,7 +45,7 @@
             <div class="assigment-page" ng-show="showpage == 2">
               <div class="alert-not-found caution" ng-hide="state.isData.assigment">
                 <i class="icon ion-android-checkbox-outline"></i>
-                <h1>No Assigment found</h1>
+                <h1>No Assignment found</h1>
                 <p>Click Refresh button to reload</p>
               </div>
               <div class="card" ng-repeat="d in state.isData.assigment">

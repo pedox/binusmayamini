@@ -77,7 +77,7 @@ app.controller('ScheduleController',
               next = toJson(_schedule.eq(1).html()),
               skedul = today.concat(next),
               jadwal = BinusMaya.grouping(skedul);
-            if(jadwal.length > 0) {
+            if(localStorage.jadwal || jadwal.length > 0) {
               localStorage.jadwal = JSON.stringify(jadwal);
             }
             localStorage.lastUpdate = moment().format('D MMMM YYYY h:mm:ss');

@@ -6,7 +6,7 @@ app.controller('AbsenceController',
       refreshAbsence()
         .then(function(done) {
           $scope.$applyAsync(function() {
-            if (done.length > 0) {
+            if (!localStorage.absence || done.length > 0) {
               localStorage.absence = JSON.stringify(done);
               $scope.absence = done;
             }

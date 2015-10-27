@@ -38,7 +38,7 @@ app.controller('MyClassDetailController',
           $(data).find("#ctl00_ContentPlaceHolder1_pnlMainAssignment table tbody tr").each(function(i, d) {
             if (i !== 0) {
               assigment.push({
-                term: 'Main Assigment',
+                term: 'Main Assignment',
                 session: parseInt($(d).find("td").eq(0).text()),
                 topics: $(d).find("td").eq(1).text(),
                 title: $(d).find("td").eq(2).text(),
@@ -53,7 +53,7 @@ app.controller('MyClassDetailController',
           $(data).find("#ctl00_ContentPlaceHolder1_pnlAdditionalAssignment2 table tbody tr").each(function(i, d) {
             if (i !== 0) {
               assigment.push({
-                term: 'Additional Assigment',
+                term: 'Additional Assignment',
                 session: parseInt($(d).find("td").eq(0).text()),
                 topics: $(d).find("td").eq(1).text(),
                 title: $(d).find("td").eq(2).text(),
@@ -165,7 +165,6 @@ app.controller('MyClassDetailController',
 
     var downloadMaterial = function(links)
     {
-      //console.log($scope.classData[dataset].url, links);
       return $q(function(resolve, reject) {
         BinusMaya.checkLogin()
           .then(function() {
@@ -201,7 +200,6 @@ app.controller('MyClassDetailController',
 
       getClassDetail($scope.classData[dataset].url)
         .then(function(data) {
-          console.log(data);
           $scope.classData[dataset].detail = data;
           localStorage.myClass = JSON.stringify($scope.classData);
           $scope.$applyAsync(function() {

@@ -34,7 +34,9 @@ var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory']
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }*/
     if (window.StatusBar) {
-      StatusBar.styleDefault();
+      if (cordova.platformId == 'android') {
+        StatusBar.backgroundColorByHexString("#1C536F");
+      }
     }
     if(localStorage.islogin) {
       getProfileImage();  
