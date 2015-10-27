@@ -117,6 +117,32 @@ angular.module('listRoute', [])
         }
       }
     })
+    .state('settings', {
+      url: '/settings',
+      views: {
+        'main-view': {
+          templateUrl: view_path + 'settings/index.html',
+        }
+      }
+    })
+    .state('permissions', {
+      url: '/settings/permissions',
+      views: {
+        'main-view': {
+          templateUrl: view_path + 'settings/permissions.html',
+          controller: 'PermissionController'
+        }
+      }
+    })
+    .state('password', {
+      url: '/settings/password',
+      views: {
+        'main-view': {
+          templateUrl: view_path + 'settings/password.html',
+          controller: 'PasswordController'
+        }
+      }
+    })
     .state('coming', {
       url: '/coming',
       views: {

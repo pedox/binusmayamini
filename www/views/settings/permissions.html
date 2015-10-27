@@ -1,0 +1,35 @@
+<ion-view view-title="Permissions">
+    <ion-content>
+    	<div ng-show="isAllow">
+	        <ul class="list">
+				<li class="item item-toggle">
+				   Exam Score
+				   <label class="toggle toggle-positive">
+				     <input type="checkbox" ng-model="permission.examScore" ng-change="change()">
+				     <div class="track">
+				       <div class="handle"></div>
+				     </div>
+				   </label>
+				</li>
+				<li class="item item-toggle">
+				   Absence
+				   <label class="toggle toggle-positive">
+				     <input type="checkbox" ng-model="permission.absence" ng-change="change()">
+				     <div class="track">
+				       <div class="handle"></div>
+				     </div>
+				   </label>
+				</li>
+				<li class="item item-toggle">
+				   Finance Status
+				   <label class="toggle toggle-positive">
+				     <input type="checkbox" ng-model="permission.finance" ng-change="change()">
+				     <div class="track">
+				       <div class="handle"></div>
+				     </div>
+				   </label>
+				</li>
+			</ul>
+        </div>
+    </ion-content>
+</ion-view>

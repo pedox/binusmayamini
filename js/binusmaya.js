@@ -157,39 +157,47 @@ angular.module('BinusMayaFactory', [])
         }, reject);
       });
     },
-    promptPassword: function(location, scope) {
+    promptPassword: function(location, scope, permissionKey) {
       scope.promptPass = {};
+      var code = localStorage.code
+          permission = JSON.parse(localStorage.permission),
+          msgvar = code ? 'Secret Code' : 'Binusmaya Password';
       return $q(function(resolve, reject) {
-        var myPopup = $ionicPopup.show({
-          template: '<p ng-show="promptPass.error">Incorrect Password</p><input type="password" class="promptPass-form" ng-model="promptPass.password">',
-          title: 'Enter Binusmaya Password',
-          subTitle: '',
-          scope: scope,
-          buttons: [{
-            text: 'Cancel',
-            onTap: function(e) {
-              window.location.hash = '#/' + location;
-              myPopup.close();
-              reject('back');
-            }
-          }, {
-            text: '<b>Enter</b>',
-            type: 'button-positive',
-            onTap: function(e) {
-              var mypass = JSON.parse(localStorage.loginId).password;
-              if (mypass == scope.promptPass.password) {
-                scope.promptPass = {};
-                scope.isAllow = true;
-                resolve(true);
-                return true;
-              } else {
-                scope.promptPass.error = true;
-                scope.promptPass.password = "";
-                e.preventDefault();
+        if(permission[permissionKey] == true || typeof permissionKey === "undefined") {
+          var myPopup = $ionicPopup.show({
+            template: '<p ng-show="promptPass.error">Incorrect Password</p><input type="password" class="promptPass-form" ng-model="promptPass.password">',
+            title: 'Enter ' + msgvar,
+            subTitle: '',
+            scope: scope,
+            buttons: [{
+              text: 'Cancel',
+              onTap: function(e) {
+                window.location.hash = '#/' + location;
+                myPopup.close();
+                reject('back');
               }
-            }
-          }]
-        });
+            }, {
+              text: '<b>Enter</b>',
+              type: 'button-positive',
+              onTap: function(e) {
+                var mypass = localStorage.code ? localStorage.code : JSON.parse(localStorage.loginId).password;
+                if (mypass == scope.promptPass.password) {
+                  scope.promptPass = {};
+                  scope.isAllow = true;
+                  resolve(true);
+                  return true;
+                } else {
+                  scope.promptPass.error = true;
+                  scope.promptPass.password = "";
+                  e.preventDefault();
+                }
+              }
+            }]
+          });
+        } else {
+          scope.isAllow = true;
+          resolve(true);
+        }
       });
     },
     _requestError: function(data) {

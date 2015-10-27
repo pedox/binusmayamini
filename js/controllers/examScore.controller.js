@@ -109,7 +109,7 @@ app.controller('ExamScoreController',
     };
 
     $scope.isAllow = false;
-    BinusMaya.promptPassword('services', $scope)
+    BinusMaya.promptPassword('services', $scope, 'examScore')
     .then(function() {
 			$scope.examScore = false;
 	    if (typeof localStorage.examScore !== "undefined") {

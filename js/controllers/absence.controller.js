@@ -105,7 +105,7 @@ app.controller('AbsenceController',
       });
     };
 
-    BinusMaya.promptPassword('services', $scope)
+    BinusMaya.promptPassword('services', $scope, 'absence')
     .then(function() {
       $scope.absence = false;
       if (typeof localStorage.absence !== "undefined") {

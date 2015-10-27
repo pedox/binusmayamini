@@ -15,7 +15,7 @@ var view_path = 'views/',
 
 var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory'])
 
-.run(function($ionicPlatform, $rootScope, $ionicHistory, $ionicNavBarDelegate, BinusMaya, $timeout) {
+.run(function($ionicPlatform, $rootScope, $ionicHistory, $ionicNavBarDelegate, BinusMaya, $timeout, $ionicPopup) {
 
   $rootScope.login = (typeof localStorage.islogin == "undefined" ? false : localStorage.islogin);
   $rootScope.leftMenu = false;
@@ -46,11 +46,20 @@ var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory']
   };
   $rootScope.getLastUpdate();
   $rootScope.logout = function() {
-    localStorage.clear();
-    window.location.hash = '#/';
-    $ionicHistory.clearHistory();
-    $ionicNavBarDelegate.showBackButton(false);
-    location.reload();
+    $ionicPopup.confirm({
+      title: 'Confirm',
+      template: 'Are you sure to logout ?',
+    }).then(function(res) {
+      if(res) {
+        localStorage.clear();
+        window.location.hash = '#/';
+        $ionicHistory.clearHistory();
+        $ionicNavBarDelegate.showBackButton(false);
+        location.reload();
+      } else {
+        return false;
+      }
+    });
   };
 
   var getProfileImage = function() {
@@ -75,6 +84,13 @@ var app = angular.module('BinusMaya', ['ionic', 'listRoute', 'BinusMayaFactory']
   
 
   if ($rootScope.login) {
+    if(!localStorage.permission) {
+      localStorage.permission = JSON.stringify({
+        examScore: true,
+        absence: true,
+        finance: true
+      });
+    }
     window.location.hash = '/schedule';
   } else {
     window.location.hash = '/';

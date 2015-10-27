@@ -117,7 +117,7 @@ app.controller('FinanceController',
       $scope.$broadcast('scroll.refreshComplete');
     };
 
-    BinusMaya.promptPassword('services', $scope)
+    BinusMaya.promptPassword('services', $scope, 'finance')
     .then(function() {
       if (localStorage.finance) {
         $scope.financeList = JSON.parse(localStorage.finance);
