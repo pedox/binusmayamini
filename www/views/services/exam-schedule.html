@@ -5,28 +5,30 @@
           spinner="android"
           on-refresh="doRefresh()">
       </ion-refresher>
-      <div class="exam-schedule-list" ng-show="examScheduleList || examScheduleList.length > 0">
-        <div class="group-date" ng-repeat="d in examScheduleList">
-          <time class="group-time">{{d.date}}</time>
-          <div class="card" ng-repeat="e in d.data">
-            <div class="item">
-              <div class="term">{{e.term}}</div>
-              <h2>{{e.name}}</h2>
-              <p class="summary"><time>{{e.hour}}</time> @ <span>{{e.campus}}</span></p>
-              <div class="row">
-                <div class="col cols-25"><span>{{e.seat}}</span><label>Seat No</label></div>
-                <div class="col cols-25"><span>{{e.className}}</span><label>Class</label></div>
-                <div class="col cols-25"><span>{{e.room}}</span><label>Room</label></div>
-                <div class="col cols-25"><span>{{e.sks}}</span><label>SKS</label></div>
+      <div ng-show="examScheduleList">
+        <div class="exam-schedule-list" ng-show="examScheduleList.length > 0">
+          <div class="group-date" ng-repeat="d in examScheduleList">
+            <time class="group-time">{{d.date}}</time>
+            <div class="card" ng-repeat="e in d.data">
+              <div class="item">
+                <div class="term">{{e.term}}</div>
+                <h2>{{e.name}}</h2>
+                <p class="summary"><time>{{e.hour}}</time> @ <span>{{e.campus}}</span></p>
+                <div class="row">
+                  <div class="col cols-25"><span>{{e.seat}}</span><label>Seat No</label></div>
+                  <div class="col cols-25"><span>{{e.className}}</span><label>Class</label></div>
+                  <div class="col cols-25"><span>{{e.room}}</span><label>Room</label></div>
+                  <div class="col cols-25"><span>{{e.sks}}</span><label>SKS</label></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="alert-not-found caution" ng-hide="examScheduleList || examScheduleList.length > 0">
-        <i class="icon ion-calendar"></i>
-        <h1>No exam schedule for this time</h1>
-        <p>Pull Down to refresh ...</p>
+        <div class="alert-not-found caution" ng-hide="examScheduleList.length > 0">
+          <i class="icon ion-calendar"></i>
+          <h1>No exam schedule for this time</h1>
+          <p>Pull Down to refresh ...</p>
+        </div>
       </div>
     </ion-content>
 </ion-view>

@@ -1,20 +1,22 @@
 app.controller('ExamScheduleController',
   function($scope, BinusMaya, $ionicNavBarDelegate, $state, $http, $location, 
-  	$stateParams, $timeout, $rootScope, $ionicPlatform, $q, $ionicPopup) {
+  	$stateParams, $timeout, $rootScope, $ionicPlatform, $q, $ionicPopup, $ionicLoading) {
 
     $scope.doRefresh = function() {
       refreshSchedule()
         .then(function(done) {
           $scope.$applyAsync(function() {
-          	if(done.length > 0)
+          	if(!localStorage.examSchedule || done.length > 0)
           	{
 	          	localStorage.examSchedule = JSON.stringify(done);
 	            $scope.examScheduleList = done;
           	}
+            $ionicLoading.hide();
           	$scope.$broadcast('scroll.refreshComplete');	
           });
         }, function(err) {
           errHandle(err);
+          $ionicLoading.hide();
           $scope.$broadcast('scroll.refreshComplete');
         });
     };
@@ -108,8 +110,11 @@ app.controller('ExamScheduleController',
     };
 
     $scope.examScheduleList = false;
-    if (typeof localStorage.examSchedule !== "undefined") {
+    if (localStorage.examSchedule) {
       $scope.examScheduleList = JSON.parse(localStorage.examSchedule);
+    } else {
+      $ionicLoading.show({templateUrl: 'views/module/loading.html',noBackdrop: true});
+      $scope.doRefresh();
     }
 
     var errHandle = function(msg) {

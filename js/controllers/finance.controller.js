@@ -3,19 +3,25 @@
  * @author Naufal <naufal@martabakang.us>
  */
 app.controller('FinanceController',
-  function($scope, BinusMaya, $ionicPopup, $q, $http) {
+  function($scope, BinusMaya, $ionicPopup, $q, $http, $ionicLoading) {
 
     $scope.isAllow = false;
+    $scope.financeList = false;
 
     $scope.doRefresh = function() {
       refreshFinance()
         .then(function(done) {
           $scope.$applyAsync(function() {
-            $scope.financeList = done;
+            if(!localStorage.finance || done.length > 0) {
+              localStorage.finance = JSON.stringify(done);
+              $scope.financeList = done;
+            }
+            $ionicLoading.hide();
             $scope.$broadcast('scroll.refreshComplete');
           });
         }, function(err) {
           errHandle(err);
+          $ionicLoading.hide();
           $scope.$broadcast('scroll.refreshComplete');
         });
     };
@@ -55,7 +61,7 @@ app.controller('FinanceController',
             billing: billing,
             lastUpdate: moment().format('D MMMM YYYY h:mm:ss')
           };
-          localStorage.finance = JSON.stringify(final_data);
+          
           return final_data;
         };
 
@@ -113,9 +119,12 @@ app.controller('FinanceController',
 
     BinusMaya.promptPassword('services', $scope)
     .then(function() {
-      $scope.financeList = false;
-      if (typeof localStorage.finance !== "undefined") {
+      if (localStorage.finance) {
         $scope.financeList = JSON.parse(localStorage.finance);
+        console.log($scope.financeList);
+      } else {
+        $ionicLoading.show({templateUrl: 'views/module/loading.html',noBackdrop: true});
+        $scope.doRefresh();
       }
     });
   }

@@ -6,47 +6,49 @@
           on-refresh="doRefresh()">
       </ion-refresher>
         <div class="protect" ng-show="isAllow">
-          <div class="finance-status" ng-show="financeList">
-            <div class="list">
-              <div class="card">
-                <div class="billing">
-                  <h1>Billing</h1>
-                  <p class="bill-info">Rp -. {{ toMoney(financeList.billing) }}</p>
-                  <p class="last-update">Last Update: {{ financeList.lastUpdate }}</p>
+          <div ng-show="financeList">
+            <div class="finance-status" ng-show="financeList.data.length > 0">
+              <div class="list">
+                <div class="card">
+                  <div class="billing">
+                    <h1>Billing</h1>
+                    <p class="bill-info">Rp -. {{ toMoney(financeList.billing) }}</p>
+                    <p class="last-update">Last Update: {{ financeList.lastUpdate }}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="card" ng-if="financeList.data.length > 0">
-                <div ng-repeat="data in financeList.data">
-                  <div class="item item-divider">{{data.date}}</div>
-                  <div class="item" ng-repeat="dat in data.data">
-                    <h2>{{dat.title}}</h2>
-                    <div class="icon ion-arrow-up-b" ng-if="dat.payment > 0"></div>
-                    <div class="icon ion-arrow-down-b" ng-if="dat.charge > 0"></div>
-                    <div class="row">
-                      <div class="col col-50">
-                        <p><strong>Term :</strong> </p>
-                        <p><strong>Charge :</strong></p>
-                        <p><strong>Refund :</strong></p>
-                        <p><strong>Payment :</strong></p>
-                        <p><strong>Due Date :</strong></p>
-                      </div>
-                      <div class="col col-50">
-                        <p>{{dat.term}}&nbsp;</p>
-                        <p>Rp. {{ toMoney(dat.charge) }}&nbsp;</p>
-                        <p>Rp. {{ toMoney(data.refund) }}&nbsp;</p>
-                        <p>Rp. {{ toMoney(dat.payment) }}&nbsp;</p>
-                        <p>{{dat.due}}&nbsp;</p>
+                <div class="card" ng-if="financeList.data.length > 0">
+                  <div ng-repeat="data in financeList.data">
+                    <div class="item item-divider">{{data.date}}</div>
+                    <div class="item" ng-repeat="dat in data.data">
+                      <h2>{{dat.title}}</h2>
+                      <div class="icon ion-arrow-up-b" ng-if="dat.payment > 0"></div>
+                      <div class="icon ion-arrow-down-b" ng-if="dat.charge > 0"></div>
+                      <div class="row">
+                        <div class="col col-50">
+                          <p><strong>Term :</strong> </p>
+                          <p><strong>Charge :</strong></p>
+                          <p><strong>Refund :</strong></p>
+                          <p><strong>Payment :</strong></p>
+                          <p><strong>Due Date :</strong></p>
+                        </div>
+                        <div class="col col-50">
+                          <p>{{dat.term}}&nbsp;</p>
+                          <p>Rp. {{ toMoney(dat.charge) }}&nbsp;</p>
+                          <p>Rp. {{ toMoney(data.refund) }}&nbsp;</p>
+                          <p>Rp. {{ toMoney(dat.payment) }}&nbsp;</p>
+                          <p>{{dat.due}}&nbsp;</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="alert-not-found caution" ng-hide="financeList">
-              <i class="icon ion-cash"></i>
-              <h1>No finance status found</h1>
-              <p>Pull Down to refresh ...</p>
+            <div class="alert-not-found caution" ng-hide="financeList.data.length > 0">
+                <i class="icon ion-cash"></i>
+                <h1>No finance status found</h1>
+                <p>Pull Down to refresh ...</p>
+            </div>
           </div>
         </div>
     </ion-content>
